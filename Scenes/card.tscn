@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://w8imsrlfu3bk"]
 
-[ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="1_kikvd"]
-[ext_resource type="Script" uid="uid://c507srge8l8gb" path="res://card.gd" id="1_rjlel"]
+[ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://Arts/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="1_kikvd"]
+[ext_resource type="Script" uid="uid://c507srge8l8gb" path="res://Scripts/card.gd" id="1_rjlel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
 size = Vector2(50, 83)

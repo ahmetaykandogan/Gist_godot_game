@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b03v0u4xchcxs"
-path="res://.godot/imported/attack1_4.png-89493002eec4e328a5689324063deb00.ctex"
+uid="uid://beyv5ntvar5dj"
+path="res://.godot/imported/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg-10d51d2c670ce85e56e31ae13fcbc373.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://attack1_4.png"
-dest_files=["res://.godot/imported/attack1_4.png-89493002eec4e328a5689324063deb00.ctex"]
+source_file="res://Arts/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg"
+dest_files=["res://.godot/imported/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg-10d51d2c670ce85e56e31ae13fcbc373.ctex"]
 
 [params]
 

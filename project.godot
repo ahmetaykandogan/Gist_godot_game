@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="GIST Card"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Scenes/icon.svg"

@@ -25,10 +25,8 @@ func _process(_delta: float) -> void:
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-
 		if event.pressed:
 			var card = raycast_check_for_card()
-
 			if card:
 				card_being_dragged = card
 
@@ -37,7 +35,6 @@ func _input(event):
 
 				# Put the dragged card above the other cards
 				card_being_dragged.z_index = 10
-
 		else:
 			if card_being_dragged:
 				card_being_dragged.z_index = 1
