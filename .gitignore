@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot 3 specific ignores
+# .import/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/editor files
+.vscode/
+.idea/
