@@ -1,15 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=5 format=3 uid="uid://dydoglgid6c03"]
 
-[ext_resource type="Script" uid="uid://bk1fvgibhnbys" path="res://Scripts/card_manager.gd" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://w8imsrlfu3bk" path="res://Scenes/card.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Turn_handler.gd" id="1_rgh2o"]
+[ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/character_slot_manager.gd" id="2_pbw6q"]
+[ext_resource type="Script" uid="uid://drxfhy8m6q0la" path="res://Scripts/Character_Hand.gd" id="3_v1gob"]
+[ext_resource type="Script" uid="uid://mojmg4jh01f2" path="res://Scripts/card_manager.gd" id="4_jw32o"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_rgh2o")
+
+[node name="CombatStartButton" type="Node2D" parent="."]
+position = Vector2(1764, 623)
+
+[node name="Button" type="Button" parent="CombatStartButton"]
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 83.0
+
+[node name="CharacterSlotManager" type="Node2D" parent="."]
+script = ExtResource("2_pbw6q")
+
+[node name="CharacterHand" type="Node2D" parent="."]
+script = ExtResource("3_v1gob")
 
 [node name="CardManager" type="Node2D" parent="."]
-script = ExtResource("1_bo1nx")
+script = ExtResource("4_jw32o")
 
-[node name="Card" parent="CardManager" instance=ExtResource("2_8gbba")]
-position = Vector2(194, 105)
-
-[node name="Card2" parent="CardManager" instance=ExtResource("2_8gbba")]
-position = Vector2(101, 106)
+[connection signal="pressed" from="CombatStartButton/Button" to="." method="_on_button_pressed"]
