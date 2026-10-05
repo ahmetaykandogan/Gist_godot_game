@@ -25,10 +25,10 @@ func _on_area_2d_mouse_exited() -> void:
 	
 func set_acted(value: bool):
 	has_acted = value
-	$Area2D/Sprite2D.modulate = Color(0.5, 0.5, 0.5) if value else Color.WHITE
+	$Area2D/Sprite2D.modulate = Color(0.459, 0.355, 0.442, 1.0) if value else Color.WHITE
 
 func try_use_skill(skill):
 	if has_acted:
 		return
 	set_acted(true)
-	use_skill(skill)
+	begin_cast(skill)

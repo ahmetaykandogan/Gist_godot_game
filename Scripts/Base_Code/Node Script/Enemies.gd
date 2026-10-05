@@ -11,11 +11,21 @@ func _ready() -> void:
 	setup_sprite(data.texture)
 	health_bar.max_value = max_health
 	update_health_bar()
+	
+func choose_action():
+	if pending_skill or not data.ai:
+		return
+	var skill = data.ai.choose_skill(self)
+	if skill:
+		begin_cast(skill)
 
 func take_turn():
-	print("Do Something!")
+	if pending_skill:
+		tick_cast()
+		return
 	if not data.ai:
 		return
 	var skill = data.ai.choose_skill(self)
 	if skill:
-		use_skill(skill)
+		begin_cast(skill)
+	

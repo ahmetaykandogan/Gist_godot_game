@@ -23,7 +23,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../CharacterHand"
 	main_reference = $".."
-	input_manager = $"../InputManager"   # new
+	input_manager = $"../InputManager"
 
 func start_drag(card, slot):
 	if not card:

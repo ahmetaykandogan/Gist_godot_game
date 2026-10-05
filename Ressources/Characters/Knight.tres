@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=5 format=3 uid="uid://diqvo77kala33"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=6 format=3 uid="uid://diqvo77kala33"]
 
 [ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="1_1yd6f"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_ey8l6"]
 [ext_resource type="Resource" uid="uid://b7ymwn6lsg5np" path="res://Ressources/Skills/Slash.tres" id="3_cp61s"]
-[ext_resource type="Texture2D" uid="uid://ddkom0jecwjdd" path="res://Arts/Actual art/Soldier_single.png" id="4_busmy"]
+[ext_resource type="Resource" uid="uid://blea3e0qbq35i" path="res://Ressources/Skills/HeavySlash.tres" id="4_ey8l6"]
+[ext_resource type="Texture2D" uid="uid://ddkom0jecwjdd" path="res://Arts/Actual art/Soldier_single.png" id="5_cp61s"]
 
 [resource]
 script = ExtResource("1_1yd6f")
 character_name = "Knight"
-texture = ExtResource("4_busmy")
+texture = ExtResource("5_cp61s")
 max_health = 100
-skills = Array[ExtResource("2_ey8l6")]([ExtResource("3_cp61s")])
+skills = Array[ExtResource("2_ey8l6")]([ExtResource("3_cp61s"), ExtResource("4_ey8l6")])
 metadata/_custom_type_script = "uid://bsmvohvkwavui"

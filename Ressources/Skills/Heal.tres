@@ -16,4 +16,5 @@ skill_name = "Heal"
 texture = ExtResource("5_mc40m")
 effects = Array[ExtResource("1_novyo")]([ExtResource("2_gi2eo")])
 target_pattern = SubResource("Resource_wr5tl")
+cast_time = 2
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

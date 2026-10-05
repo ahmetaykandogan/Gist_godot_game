@@ -5,3 +5,4 @@ extends Resource
 @export var texture: Texture2D
 @export var effects: Array[SpellEffect] = []
 @export var target_pattern: TargetPattern
+@export var cast_time: int = 1

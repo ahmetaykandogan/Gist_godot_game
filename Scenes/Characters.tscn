@@ -34,5 +34,21 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_styles/fill = SubResource("StyleBoxFlat_av83q")
 show_percentage = false
 
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 24.0
+
+[node name="CastBox" type="PanelContainer" parent="."]
+offset_left = -19.0
+offset_top = -142.0
+offset_right = 21.0
+offset_bottom = -102.0
+
+[node name="Label" type="Label" parent="CastBox"]
+layout_mode = 2
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
