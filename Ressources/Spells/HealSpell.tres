@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=6 format=3 uid="uid://dvpygix8j7keh"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/SpellEffects/SpellEffect.gd" id="1_krqil"]
+[ext_resource type="Script" uid="uid://bwhtohxbl8pqj" path="res://Scripts/Ressource Scripts/SpellEffects/HealEffect.gd" id="2_1jhsf"]
+[ext_resource type="Script" uid="uid://bu800ux620kbo" path="res://Scripts/Ressource Scripts/SpellData.gd" id="3_dc2ln"]
+[ext_resource type="Texture2D" uid="uid://dc4h6puydcwud" path="res://Arts/PlaceHolder/Heal.webp" id="4_nbvj2"]
+
+[sub_resource type="Resource" id="Resource_p101m"]
+script = ExtResource("2_1jhsf")
+amount = 10
+metadata/_custom_type_script = "uid://bwhtohxbl8pqj"
+
+[resource]
+script = ExtResource("3_dc2ln")
+spell_name = "Heal"
+texture = ExtResource("4_nbvj2")
+effects = Array[ExtResource("1_krqil")]([SubResource("Resource_p101m")])
+metadata/_custom_type_script = "uid://bu800ux620kbo"

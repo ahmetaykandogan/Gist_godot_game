@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://w8imsrlfu3bk"]
+[gd_scene load_steps=5 format=3 uid="uid://8hqee01qa4lj"]
 
-[ext_resource type="Script" uid="uid://c507srge8l8gb" path="res://Scripts/Base_Code/character.gd" id="1_av83q"]
-[ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://Arts/PlaceHolder/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="2_65mav"]
+[ext_resource type="Script" uid="uid://cjd06xhbpo8ha" path="res://Scripts/Base_Code/Node Script/Enemies.gd" id="1_tbl8x"]
+[ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://Arts/PlaceHolder/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="2_2v8rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
 size = Vector2(161, 248)
@@ -9,10 +9,12 @@ size = Vector2(161, 248)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_av83q"]
 bg_color = Color(0.31992894, 0.78791374, 0.07078444, 1)
 
-[node name="Characters" type="Node2D"]
-script = ExtResource("1_av83q")
+[node name="Enemies" type="Node2D"]
+script = ExtResource("1_tbl8x")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rjlel")
@@ -20,7 +22,8 @@ shape = SubResource("RectangleShape2D_rjlel")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(9.536743e-07, 9.536743e-07)
 scale = Vector2(0.12561652, 0.14043035)
-texture = ExtResource("2_65mav")
+texture = ExtResource("2_2v8rc")
+flip_h = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(140, 5)
@@ -33,6 +36,3 @@ theme_override_colors/font_color = Color(0.35118848, 0.9999998, 0.33536977, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_styles/fill = SubResource("StyleBoxFlat_av83q")
 show_percentage = false
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

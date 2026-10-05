@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HealEffect" load_steps=2 format=3 uid="uid://bprcp5kyiywis"]
+
+[ext_resource type="Script" uid="uid://bwhtohxbl8pqj" path="res://Scripts/Ressource Scripts/SpellEffects/HealEffect.gd" id="1_gk2uq"]
+
+[resource]
+script = ExtResource("1_gk2uq")
+amount = 25
+metadata/_custom_type_script = "uid://bwhtohxbl8pqj"

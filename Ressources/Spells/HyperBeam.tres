@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=6 format=3 uid="uid://cynvy4kq68k12"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/SpellEffects/SpellEffect.gd" id="1_bj1sy"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/SpellEffects/DamageEffect.gd" id="2_fs4ml"]
+[ext_resource type="Script" uid="uid://bu800ux620kbo" path="res://Scripts/Ressource Scripts/SpellData.gd" id="3_nx1p7"]
+[ext_resource type="Texture2D" uid="uid://rgmqc23gbgu7" path="res://Arts/PlaceHolder/Hyperbeam.webp" id="4_eo6h4"]
+
+[sub_resource type="Resource" id="Resource_fl4wh"]
+script = ExtResource("2_fs4ml")
+amount = 26
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[resource]
+script = ExtResource("3_nx1p7")
+spell_name = "Hyperbeam"
+texture = ExtResource("4_eo6h4")
+effects = Array[ExtResource("1_bj1sy")]([SubResource("Resource_fl4wh")])
+metadata/_custom_type_script = "uid://bu800ux620kbo"

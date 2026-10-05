@@ -1,29 +1,93 @@
-[gd_scene load_steps=5 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=21 format=3 uid="uid://dydoglgid6c03"]
 
-[ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Turn_handler.gd" id="1_rgh2o"]
-[ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/character_slot_manager.gd" id="2_pbw6q"]
-[ext_resource type="Script" uid="uid://drxfhy8m6q0la" path="res://Scripts/Character_Hand.gd" id="3_v1gob"]
-[ext_resource type="Script" uid="uid://mojmg4jh01f2" path="res://Scripts/card_manager.gd" id="4_jw32o"]
+[ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Turn_handler.gd" id="1_rgh2o"]
+[ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/slot_manager.gd" id="2_pbw6q"]
+[ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="3_erwvk"]
+[ext_resource type="Script" uid="uid://drxfhy8m6q0la" path="res://Scripts/Base_Code/Character_Hand.gd" id="3_v1gob"]
+[ext_resource type="Resource" uid="uid://diqvo77kala33" path="res://Ressources/Characters/Knight.tres" id="4_2w5on"]
+[ext_resource type="Script" uid="uid://bunwc674leqbr" path="res://Scripts/Base_Code/Spell_hand.gd" id="4_50glp"]
+[ext_resource type="Script" uid="uid://bu800ux620kbo" path="res://Scripts/Ressource Scripts/SpellData.gd" id="4_grg3l"]
+[ext_resource type="Script" uid="uid://mojmg4jh01f2" path="res://Scripts/Base_Code/card_manager.gd" id="4_jw32o"]
+[ext_resource type="Resource" uid="uid://cynvy4kq68k12" path="res://Ressources/Spells/HyperBeam.tres" id="5_frkhe"]
+[ext_resource type="Script" uid="uid://d4mex43tf5y2q" path="res://Scripts/Base_Code/Input_Manager.gd" id="5_pbw6q"]
+[ext_resource type="Resource" uid="uid://dvpygix8j7keh" path="res://Ressources/Spells/HealSpell.tres" id="6_grg3l"]
+[ext_resource type="Script" uid="uid://bsicup83ls2gk" path="res://Scripts/Base_Code/Deck.gd" id="6_v1gob"]
+[ext_resource type="Script" uid="uid://det4fycl8ohxp" path="res://Scenes/Spell_manager.gd" id="6_vy5pj"]
+[ext_resource type="Resource" uid="uid://cw2jp8dsv3vl4" path="res://Ressources/Spells/Curse.tres" id="7_frkhe"]
+[ext_resource type="Texture2D" uid="uid://c11eye5rssyo5" path="res://Arts/Actual art/Deck.png" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://cu3m2ldk3gyoj" path="res://Scripts/Base_Code/Node Script/EnemyManager.gd" id="11_2w5on"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="12_346fj"]
+[ext_resource type="Resource" uid="uid://bss8srdngxwys" path="res://Ressources/Enemies/Zombie.tres" id="13_0sclb"]
+[ext_resource type="PackedScene" uid="uid://bxoue2xd6d5sl" path="res://Scenes/Skill_Table.tscn" id="14_1p5hy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
+size = Vector2(178, 261)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
 
 [node name="CombatStartButton" type="Node2D" parent="."]
-position = Vector2(1764, 623)
+position = Vector2(1764, 842)
 
 [node name="Button" type="Button" parent="CombatStartButton"]
 offset_left = -14.0
 offset_top = -20.0
 offset_right = 96.0
 offset_bottom = 83.0
+text = "Start"
 
-[node name="CharacterSlotManager" type="Node2D" parent="."]
-script = ExtResource("2_pbw6q")
+[node name="EndTurnButton" type="Node2D" parent="."]
+visible = false
+position = Vector2(1766, 842)
+
+[node name="Button" type="Button" parent="EndTurnButton"]
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 83.0
+text = "End turn"
 
 [node name="CharacterHand" type="Node2D" parent="."]
 script = ExtResource("3_v1gob")
+roster = Array[ExtResource("3_erwvk")]([ExtResource("4_2w5on"), ExtResource("4_2w5on")])
+
+[node name="SpellHand" type="Node2D" parent="."]
+script = ExtResource("4_50glp")
+spell_pool = Array[ExtResource("4_grg3l")]([ExtResource("5_frkhe"), ExtResource("5_frkhe"), ExtResource("5_frkhe"), ExtResource("5_frkhe"), ExtResource("6_grg3l"), ExtResource("6_grg3l"), ExtResource("7_frkhe"), ExtResource("7_frkhe")])
+
+[node name="SlotManager" type="Node2D" parent="."]
+script = ExtResource("2_pbw6q")
+
+[node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("11_2w5on")
+encounter = Array[ExtResource("12_346fj")]([ExtResource("13_0sclb"), ExtResource("13_0sclb")])
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("4_jw32o")
 
+[node name="SpellManager" type="Node2D" parent="."]
+script = ExtResource("6_vy5pj")
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("5_pbw6q")
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(182, 823)
+script = ExtResource("6_v1gob")
+
+[node name="Area2D" type="Area2D" parent="Deck"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_jw32o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/Area2D"]
+texture = ExtResource("7_jw32o")
+
+[node name="SkillTable" parent="." instance=ExtResource("14_1p5hy")]
+visible = false
+
 [connection signal="pressed" from="CombatStartButton/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndTurnButton/Button" to="." method="_on_end_turn_pressed"]

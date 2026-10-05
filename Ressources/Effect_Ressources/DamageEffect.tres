@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DamageEffect" load_steps=2 format=3 uid="uid://b2vmjef1ot3es"]
+
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/SpellEffects/DamageEffect.gd" id="1_426w1"]
+
+[resource]
+script = ExtResource("1_426w1")
+amount = 10
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"

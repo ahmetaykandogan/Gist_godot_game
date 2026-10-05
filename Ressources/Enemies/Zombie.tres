@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://bss8srdngxwys"]
+
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="1_1pyv5"]
+[ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_am16m"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_g3yrg"]
+[ext_resource type="Resource" uid="uid://b7ymwn6lsg5np" path="res://Ressources/Skills/Slash.tres" id="4_0mpri"]
+[ext_resource type="Texture2D" uid="uid://b3cj2j2ldw515" path="res://Arts/Actual art/Orc_single.png" id="5_0mpri"]
+
+[sub_resource type="Resource" id="Resource_h6ikx"]
+script = ExtResource("1_am16m")
+metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
+
+[resource]
+script = ExtResource("1_1pyv5")
+enemy_name = "Zombie"
+texture = ExtResource("5_0mpri")
+max_health = 50
+skills = Array[ExtResource("2_g3yrg")]([ExtResource("4_0mpri")])
+allowed_columns = Array[int]([3])
+ai = SubResource("Resource_h6ikx")
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

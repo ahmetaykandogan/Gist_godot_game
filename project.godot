@@ -13,7 +13,7 @@ config_version=5
 config/name="GIST Card"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://Arts/icon.svg"
+config/icon="res://Arts/PlaceHolder/icon.svg"
 
 [display]
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=6 format=3 uid="uid://cw2jp8dsv3vl4"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/SpellEffects/SpellEffect.gd" id="1_tevyq"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/SpellEffects/StatusEffects.gd" id="2_ufrgk"]
+[ext_resource type="Script" uid="uid://bu800ux620kbo" path="res://Scripts/Ressource Scripts/SpellData.gd" id="2_vysfc"]
+[ext_resource type="Texture2D" uid="uid://coy5k5hoqq46n" path="res://Arts/PlaceHolder/BlackStar.webp" id="4_exbo8"]
+
+[sub_resource type="Resource" id="Resource_npmxk"]
+script = ExtResource("2_ufrgk")
+status = "Curse"
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[resource]
+script = ExtResource("2_vysfc")
+spell_name = "Curse"
+texture = ExtResource("4_exbo8")
+effects = Array[ExtResource("1_tevyq")]([SubResource("Resource_npmxk")])
+metadata/_custom_type_script = "uid://bu800ux620kbo"
