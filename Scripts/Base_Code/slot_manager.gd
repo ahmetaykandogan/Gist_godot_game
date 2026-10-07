@@ -44,7 +44,7 @@ func get_slot(row, column):
 func get_slot_in_front(slot):
 	var direction = 1 if slot.column <= 2 else -1  
 	return get_slot(slot.row, slot.column + direction)
-
+	
 func get_first_target_in_row(slot):
 	var direction = 1 if slot.column <= 2 else -1
 	var column = slot.column + direction

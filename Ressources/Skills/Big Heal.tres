@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://bclm0xbbiwpse"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/SpellEffects/SpellEffect.gd" id="1_e1cdq"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_a4qpv"]
+[ext_resource type="Script" uid="uid://bwhtohxbl8pqj" path="res://Scripts/Ressource Scripts/SpellEffects/HealEffect.gd" id="2_mm0m6"]
+[ext_resource type="Script" uid="uid://c40gvq6frpgau" path="res://Scripts/Ressource Scripts/Targeting/SelfTarget.gd" id="4_mm0m6"]
+
+[sub_resource type="Resource" id="Resource_5yrno"]
+script = ExtResource("2_mm0m6")
+amount = 30
+metadata/_custom_type_script = "uid://bwhtohxbl8pqj"
+
+[sub_resource type="Resource" id="Resource_mm0m6"]
+script = ExtResource("4_mm0m6")
+metadata/_custom_type_script = "uid://c40gvq6frpgau"
+
+[resource]
+script = ExtResource("2_a4qpv")
+skill_name = "Big Heal"
+effects = Array[ExtResource("1_e1cdq")]([SubResource("Resource_5yrno")])
+target_pattern = SubResource("Resource_mm0m6")
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

@@ -28,10 +28,10 @@ func run_enemy_turn():
 	for enemy in get_children():
 		if is_instance_valid(enemy) and not enemy.dying:
 			enemy.choose_action()
-			await get_tree().create_timer(0.4).timeout
+			await get_tree().create_timer(0.2).timeout
 
 	await get_tree().create_timer(0.6).timeout     # player reads all the numbers
 	for enemy in get_children():
 		if is_instance_valid(enemy) and not enemy.dying and enemy.pending_skill:
 			await enemy.tick_cast()
-			await get_tree().create_timer(0.4).timeout
+			await get_tree().create_timer(0.2).timeout

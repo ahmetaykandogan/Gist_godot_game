@@ -41,6 +41,6 @@ func end_player_turn():
 	for c in get_tree().get_nodes_in_group("characters"):
 		if is_instance_valid(c) and c.pending_skill:
 			c.tick_cast()
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.1).timeout
 	await $"EnemyManager".run_enemy_turn()
 	start_player_turn()
