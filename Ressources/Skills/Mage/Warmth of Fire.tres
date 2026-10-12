@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=9 format=3 uid="uid://doxpimneygbmb"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_cqr5k"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_dpg18"]
+[ext_resource type="Script" uid="uid://bwhtohxbl8pqj" path="res://Scripts/Ressource Scripts/Effects/HealEffect.gd" id="2_kndkq"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="3_vrw1v"]
+[ext_resource type="Script" uid="uid://b3is5pfp4h7eb" path="res://Scripts/Ressource Scripts/Targeting/FrontTargeting.gd" id="5_vrw1v"]
+
+[sub_resource type="Resource" id="Resource_ojjgx"]
+script = ExtResource("3_vrw1v")
+status = "Shield"
+stacks = 10
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_vrw1v"]
+script = ExtResource("2_kndkq")
+amount = 10
+metadata/_custom_type_script = "uid://bwhtohxbl8pqj"
+
+[sub_resource type="Resource" id="Resource_8w5g5"]
+script = ExtResource("5_vrw1v")
+metadata/_custom_type_script = "uid://b3is5pfp4h7eb"
+
+[resource]
+script = ExtResource("2_dpg18")
+skill_name = "Warmth of Fire"
+effects = Array[ExtResource("1_cqr5k")]([SubResource("Resource_ojjgx"), SubResource("Resource_vrw1v")])
+target_pattern = SubResource("Resource_8w5g5")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://txkwufh8khl7"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_77w2x"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_82w4p"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_xkn45"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="4_xkn45"]
+
+[sub_resource type="Resource" id="Resource_17336"]
+script = ExtResource("2_xkn45")
+amount = 2
+hit_time = 5
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_eum5u"]
+script = ExtResource("4_xkn45")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_82w4p")
+skill_name = "Ice Shards"
+effects = Array[ExtResource("1_77w2x")]([SubResource("Resource_17336")])
+target_pattern = SubResource("Resource_eum5u")
+cast_time = 2
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

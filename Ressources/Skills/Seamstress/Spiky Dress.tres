@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://kn1hoypfutle"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_mbpup"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_yf68w"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_5xx3s"]
+[ext_resource type="Script" uid="uid://c40gvq6frpgau" path="res://Scripts/Ressource Scripts/Targeting/SelfTarget.gd" id="4_yf68w"]
+
+[sub_resource type="Resource" id="Resource_5jqi2"]
+script = ExtResource("2_yf68w")
+status = "Spike"
+stacks = 5
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_5xx3s"]
+script = ExtResource("4_yf68w")
+metadata/_custom_type_script = "uid://c40gvq6frpgau"
+
+[resource]
+script = ExtResource("3_5xx3s")
+skill_name = "Spiky Dress"
+effects = Array[ExtResource("1_mbpup")]([SubResource("Resource_5jqi2")])
+target_pattern = SubResource("Resource_5xx3s")
+cast_time = 2
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

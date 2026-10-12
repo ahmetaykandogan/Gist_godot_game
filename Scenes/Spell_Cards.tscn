@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://35afxyu0ddsv"]
 
-[ext_resource type="Script" uid="uid://bqy1a2sbydcct" path="res://Scripts/Base_Code/spell_cards.gd" id="1_qj3d1"]
+[ext_resource type="Script" uid="uid://bqy1a2sbydcct" path="res://Scripts/Base_Code/Node Script/spell_cards.gd" id="1_qj3d1"]
 [ext_resource type="Texture2D" uid="uid://rgmqc23gbgu7" path="res://Arts/PlaceHolder/Hyperbeam.webp" id="2_qt01i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqpxb"]

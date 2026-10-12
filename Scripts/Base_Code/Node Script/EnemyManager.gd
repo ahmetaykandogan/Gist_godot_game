@@ -22,6 +22,7 @@ func spawn_enemy(data: EnemyData):
 	slot.character = enemy
 	slot.full = true
 	enemy.slot = slot
+	slot_manager.compact_lane(slot.row, false)
 
 func run_enemy_turn():
 

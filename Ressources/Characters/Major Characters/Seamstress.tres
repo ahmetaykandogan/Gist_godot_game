@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=8 format=3 uid="uid://bte6gt6aouk0l"]
+
+[ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="1_4r1ug"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_ii44n"]
+[ext_resource type="Texture2D" uid="uid://clg4lgwdya2o7" path="res://Arts/Actual art/Seamstress.jpg" id="3_ii44n"]
+[ext_resource type="Resource" uid="uid://kn1hoypfutle" path="res://Ressources/Skills/Seamstress/Spiky Dress.tres" id="3_oq5nw"]
+[ext_resource type="Resource" uid="uid://c7aft5sotkw0m" path="res://Ressources/Skills/Seamstress/Threads Bomb.tres" id="4_7ojcw"]
+[ext_resource type="Resource" uid="uid://bm72tfd1ud5ed" path="res://Ressources/Skills/Seamstress/Needle Dive.tres" id="5_7ojcw"]
+[ext_resource type="Resource" uid="uid://bpyxru1opfvv1" path="res://Ressources/Skills/Seamstress/Fight for me!.tres" id="6_ikmxa"]
+
+[resource]
+script = ExtResource("1_4r1ug")
+character_name = "Seamstress"
+texture = ExtResource("3_ii44n")
+max_health = 25
+skills = Array[ExtResource("2_ii44n")]([ExtResource("3_oq5nw"), ExtResource("4_7ojcw"), ExtResource("5_7ojcw"), ExtResource("6_ikmxa")])
+metadata/_custom_type_script = "uid://bsmvohvkwavui"

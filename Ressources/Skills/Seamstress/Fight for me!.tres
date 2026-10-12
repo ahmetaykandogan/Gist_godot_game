@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=6 format=3 uid="uid://bpyxru1opfvv1"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_5d466"]
+[ext_resource type="Resource" uid="uid://5brssllkg1t6" path="res://Ressources/Effect_Ressources/StatusEffect.tres" id="2_7v1ly"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_oew6j"]
+[ext_resource type="Script" uid="uid://cbhbqb0mv24bl" path="res://Scripts/Ressource Scripts/Targeting/SelfbarrageTarget.gd" id="4_7iuig"]
+
+[sub_resource type="Resource" id="Resource_moh1f"]
+script = ExtResource("4_7iuig")
+metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
+
+[resource]
+script = ExtResource("2_oew6j")
+skill_name = "Fight for me!"
+effects = Array[ExtResource("1_5d466")]([ExtResource("2_7v1ly")])
+target_pattern = SubResource("Resource_moh1f")
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

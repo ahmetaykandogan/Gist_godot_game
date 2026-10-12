@@ -46,9 +46,9 @@ offset_bottom = 24.0
 
 [node name="CastBox" type="PanelContainer" parent="."]
 offset_left = -19.0
-offset_top = -142.0
+offset_top = -104.0
 offset_right = 21.0
-offset_bottom = -102.0
+offset_bottom = -64.0
 
 [node name="Label" type="Label" parent="CastBox"]
 layout_mode = 2

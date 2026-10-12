@@ -4,7 +4,6 @@ extends Unit
 var hand_pos
 
 func _ready() -> void:
-	$"../../CardManager".connect_card_signals(self)
 	max_health = data.max_health
 	health = max_health
 	skills = data.skills

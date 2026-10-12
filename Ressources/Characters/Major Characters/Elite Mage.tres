@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=7 format=3 uid="uid://cxwifhqdwqh83"]
+
+[ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="1_8ppxv"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_yx2h4"]
+[ext_resource type="Resource" uid="uid://b7ftn61nsigxc" path="res://Ressources/Skills/Mage/Fireball.tres" id="3_gufm2"]
+[ext_resource type="Texture2D" uid="uid://chpduuh3wpmwd" path="res://Arts/Actual art/Mage.jpg" id="3_yx2h4"]
+[ext_resource type="Resource" uid="uid://txkwufh8khl7" path="res://Ressources/Skills/Mage/Ice Shards.tres" id="4_a1w4q"]
+[ext_resource type="Resource" uid="uid://doxpimneygbmb" path="res://Ressources/Skills/Mage/Warmth of Fire.tres" id="5_a1w4q"]
+
+[resource]
+script = ExtResource("1_8ppxv")
+character_name = "Elite Mage"
+texture = ExtResource("3_yx2h4")
+max_health = 20
+skills = Array[ExtResource("2_yx2h4")]([ExtResource("3_gufm2"), ExtResource("4_a1w4q"), ExtResource("5_a1w4q")])
+metadata/_custom_type_script = "uid://bsmvohvkwavui"

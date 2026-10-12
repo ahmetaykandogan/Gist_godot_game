@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://bm72tfd1ud5ed"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_056hg"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_7buu0"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_tys10"]
+[ext_resource type="Script" uid="uid://bq3vaac3lms2k" path="res://Scripts/Ressource Scripts/Targeting/BarrageTargeting.gd" id="4_7buu0"]
+
+[sub_resource type="Resource" id="Resource_h2iha"]
+script = ExtResource("2_7buu0")
+amount = 5
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_sne6x"]
+script = ExtResource("4_7buu0")
+metadata/_custom_type_script = "uid://bq3vaac3lms2k"
+
+[resource]
+script = ExtResource("2_tys10")
+skill_name = "Needle Dive"
+effects = Array[ExtResource("1_056hg")]([SubResource("Resource_h2iha")])
+target_pattern = SubResource("Resource_sne6x")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

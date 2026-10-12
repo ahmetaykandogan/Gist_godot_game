@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://w8imsrlfu3bk"]
 
-[ext_resource type="Script" uid="uid://c507srge8l8gb" path="res://Scripts/Base_Code/character.gd" id="1_av83q"]
+[ext_resource type="Script" uid="uid://c507srge8l8gb" path="res://Scripts/Base_Code/Node Script/character.gd" id="1_av83q"]
 [ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://Arts/PlaceHolder/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="2_65mav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
-size = Vector2(161, 248)
+size = Vector2(123.5, 203)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_av83q"]
 bg_color = Color(0.31992894, 0.78791374, 0.07078444, 1)
@@ -15,18 +15,19 @@ script = ExtResource("1_av83q")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(18.75, 22.5)
 shape = SubResource("RectangleShape2D_rjlel")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(9.536743e-07, 9.536743e-07)
-scale = Vector2(0.12561652, 0.14043035)
+position = Vector2(17.511326, 20.999996)
+scale = Vector2(0.09846717, 0.116647795)
 texture = ExtResource("2_65mav")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(140, 5)
-offset_left = -70.0
+offset_left = -52.0
 offset_top = 126.0
-offset_right = 70.0
+offset_right = 88.0
 offset_bottom = 153.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.35118848, 0.9999998, 0.33536977, 1)
@@ -42,10 +43,10 @@ offset_right = 101.0
 offset_bottom = 24.0
 
 [node name="CastBox" type="PanelContainer" parent="."]
-offset_left = -19.0
-offset_top = -142.0
-offset_right = 21.0
-offset_bottom = -102.0
+offset_left = -5.0
+offset_top = -104.0
+offset_right = 35.0
+offset_bottom = -64.0
 
 [node name="Label" type="Label" parent="CastBox"]
 layout_mode = 2

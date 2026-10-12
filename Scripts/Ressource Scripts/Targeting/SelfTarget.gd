@@ -1,4 +1,6 @@
 class_name SelfTarget
 extends TargetPattern
-func get_targets(user, slot_manager):
+## Only the user.
+
+func get_targets(user, _slots) -> Array:
 	return [user]

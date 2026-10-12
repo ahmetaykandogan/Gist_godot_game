@@ -9,7 +9,8 @@ var main_reference
 var taken_from_slot #to check if the card has been taken from a slot to put it back on the hand correctly
 
 var input_manager
-
+var origin_row = -1
+@onready var slot_manager = $"../SlotManager"
 func _process(_delta: float) -> void:
 	if card_being_dragged:
 		var mouse_pos = get_global_mouse_position()
@@ -29,6 +30,7 @@ func start_drag(card, slot):
 	if not card:
 		return
 	taken_from_slot = slot != null
+	origin_row = slot.row if slot else -1 
 	if slot:
 		slot.full = false
 		slot.character = null
@@ -40,17 +42,25 @@ func start_drag(card, slot):
 func finish_drag(slot):
 	if not card_being_dragged:
 		return
-	if slot and slot.full == false and slot.column <= 2:
-		card_being_dragged.position = slot.position
-		slot.full = true
-		slot.character = card_being_dragged
-		card_being_dragged.slot = slot
+	var target = null
+	if slot and slot.column <= 2:
+		target = slot_manager.get_frontmost_free_slot(slot.row, true)   # snaps to the front-most free spot
+	if target:
+		card_being_dragged.position = target.position
+		target.full = true
+		target.character = card_being_dragged
+		card_being_dragged.slot = target
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
 	elif taken_from_slot:
 		player_hand_reference.add_card_to_hand(card_being_dragged)
 	else:
 		card_being_dragged.position = card_being_dragged.hand_pos
+	if origin_row != -1:
+		slot_manager.compact_lane(origin_row, true)    # close the gap left behind
+	if target:
+		slot_manager.compact_lane(target.row, true)
 	taken_from_slot = false
+	origin_row = -1
 	card_being_dragged.z_index = 1
 	card_being_dragged = null
 

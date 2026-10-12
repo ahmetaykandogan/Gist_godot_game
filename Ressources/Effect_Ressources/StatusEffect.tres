@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://5brssllkg1t6"]
 
-[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/SpellEffects/StatusEffects.gd" id="1_jcj6v"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="1_jcj6v"]
 
 [resource]
 script = ExtResource("1_jcj6v")
+status = "Fury"
+stacks = 5
 metadata/_custom_type_script = "uid://dksnnvbean1m3"
