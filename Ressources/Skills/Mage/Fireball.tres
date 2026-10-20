@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://dx6wocctvkkg0"
 [resource]
 script = ExtResource("2_cq3bm")
 skill_name = "Fireball"
+description = "Deal 20 damage to target"
 effects = Array[ExtResource("1_hr6cu")]([SubResource("Resource_dk2go")])
 target_pattern = SubResource("Resource_i1s26")
 cast_time = 3

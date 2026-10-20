@@ -3,6 +3,9 @@ extends Unit
 signal hovered
 signal hovered_ended
 
+const MOVES_PER_TURN := 1000
+var moves_left := 0
+
 @export var data: CharacterData
 var hand_pos
 var has_acted = false
@@ -17,6 +20,9 @@ func _ready() -> void:
 	health_bar.max_value = max_health
 	update_health_bar()
 
+
+func can_move() -> bool:
+	return moves_left > 0 and not dying and slot != null
 func _on_area_2d_mouse_entered() -> void:
 	emit_signal("hovered", self)
 

@@ -21,6 +21,7 @@ func start_player_turn():
 	current_phase = GamePhase.PLAYER_TURN
 	for c in get_tree().get_nodes_in_group("characters"):
 		c.set_acted(c.pending_skill != null)
+		c.moves_left = c.MOVES_PER_TURN
 	$"EndTurnButton".show()
 
 func end_player_turn():

@@ -32,6 +32,34 @@ func add_slot_to_board(new_slot, i, j): #adds a slot to [j][i]
 func update_slot_position(slot, row, column):
 	slot.position = Layout.BOARD_ORIGIN + Vector2(column, row) * Layout.SLOT_STEP
 
+func relocate(unit, target_slot) -> bool:      # true if something changed (the move counts)
+	var from_slot = unit.slot
+	if not from_slot or target_slot == from_slot:
+		return false
+	var other = target_slot.character
+	if other and is_instance_valid(other) and not other.dying:
+		swap_units(from_slot, target_slot)
+		return true
+	if target_slot.row == from_slot.row:
+		return false
+	var dest = get_frontmost_free_slot(target_slot.row, true)
+	if not dest:
+		return false
+	move_unit(from_slot, dest)
+	compact_lane(from_slot.row, true)
+	return true
+
+func swap_units(slot_a, slot_b) -> void:
+	var a = slot_a.character
+	var b = slot_b.character
+	slot_a.character = b
+	slot_b.character = a
+	a.slot = slot_b
+	b.slot = slot_a
+	var t = create_tween().set_parallel(true)
+	t.tween_property(a, "global_position", slot_b.global_position, 0.2)
+	t.tween_property(b, "global_position", slot_a.global_position, 0.2)
+	
 #------------------------------Targetting---------------------------------------------
 
 func get_slot(row, column):

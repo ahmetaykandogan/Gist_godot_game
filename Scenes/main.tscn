@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=16 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
 [ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
@@ -7,10 +7,13 @@
 [ext_resource type="Script" uid="uid://mojmg4jh01f2" path="res://Scripts/Base_Code/Node Script/card_manager.gd" id="4_jw32o"]
 [ext_resource type="Resource" uid="uid://bte6gt6aouk0l" path="res://Ressources/Characters/Major Characters/Seamstress.tres" id="5_grg3l"]
 [ext_resource type="Script" uid="uid://d4mex43tf5y2q" path="res://Scripts/Base_Code/Node Script/Input_Manager.gd" id="5_pbw6q"]
+[ext_resource type="Resource" uid="uid://diqvo77kala33" path="res://Ressources/Characters/Minor Characters/Knight.tres" id="6_1p5hy"]
 [ext_resource type="Resource" uid="uid://cxwifhqdwqh83" path="res://Ressources/Characters/Major Characters/Elite Mage.tres" id="6_frkhe"]
+[ext_resource type="Resource" uid="uid://sm3fkn4mhu3r" path="res://Ressources/Enemies/Golemites/Defense Golem/Golem.tres" id="10_1p5hy"]
 [ext_resource type="Script" uid="uid://cu3m2ldk3gyoj" path="res://Scripts/Base_Code/Node Script/EnemyManager.gd" id="11_2w5on"]
+[ext_resource type="Resource" uid="uid://catiskt23hweh" path="res://Ressources/Enemies/Golemites/AttackGolem/AttackGolem.tres" id="11_h1m7h"]
 [ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="12_346fj"]
-[ext_resource type="Resource" uid="uid://bss8srdngxwys" path="res://Ressources/Enemies/Zombie/Zombie.tres" id="13_0sclb"]
+[ext_resource type="Resource" uid="uid://c3e301asgp8g6" path="res://Ressources/Enemies/Golemites/Bombardier/Bombardier Golem.tres" id="12_erwvk"]
 [ext_resource type="PackedScene" uid="uid://bxoue2xd6d5sl" path="res://Scenes/Skill_Table.tscn" id="14_1p5hy"]
 
 [node name="Main" type="Node2D"]
@@ -39,14 +42,14 @@ text = "End turn"
 
 [node name="CharacterHand" type="Node2D" parent="."]
 script = ExtResource("3_v1gob")
-roster = Array[ExtResource("3_erwvk")]([ExtResource("5_grg3l"), ExtResource("6_frkhe")])
+roster = Array[ExtResource("3_erwvk")]([ExtResource("5_grg3l"), ExtResource("6_frkhe"), ExtResource("6_1p5hy"), ExtResource("6_1p5hy"), ExtResource("6_1p5hy")])
 
 [node name="SlotManager" type="Node2D" parent="."]
 script = ExtResource("2_pbw6q")
 
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("11_2w5on")
-encounter = Array[ExtResource("12_346fj")]([ExtResource("13_0sclb"), ExtResource("13_0sclb"), ExtResource("13_0sclb"), ExtResource("13_0sclb")])
+encounter = Array[ExtResource("12_346fj")]([ExtResource("10_1p5hy"), ExtResource("10_1p5hy"), ExtResource("11_h1m7h"), ExtResource("11_h1m7h"), ExtResource("12_erwvk"), ExtResource("12_erwvk")])
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("4_jw32o")

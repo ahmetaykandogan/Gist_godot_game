@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://sm3fkn4mhu3r"]
+
+[ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_reb7u"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_cogml"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_kbc6d"]
+[ext_resource type="Resource" uid="uid://cpxq37508of2w" path="res://Ressources/Enemies/Golemites/Defense Golem/Shield.tres" id="4_cwrjg"]
+[ext_resource type="Texture2D" uid="uid://b5g1ksn0fbycn" path="res://Arts/Actual art/Golems (1).jpg" id="5_4eupy"]
+
+[sub_resource type="Resource" id="Resource_i68w5"]
+script = ExtResource("1_reb7u")
+metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
+
+[resource]
+script = ExtResource("2_cogml")
+enemy_name = "Defense Golem"
+texture = ExtResource("5_4eupy")
+max_health = 50
+skills = Array[ExtResource("3_kbc6d")]([ExtResource("4_cwrjg")])
+allowed_columns = Array[int]([3])
+ai = SubResource("Resource_i68w5")
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

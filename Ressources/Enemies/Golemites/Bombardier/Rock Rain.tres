@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://dbp5jeng5tupe"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_q6jcv"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_cceyk"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_frg0h"]
+[ext_resource type="Script" uid="uid://bq3vaac3lms2k" path="res://Scripts/Ressource Scripts/Targeting/BarrageTargeting.gd" id="4_0xyik"]
+
+[sub_resource type="Resource" id="Resource_82oy8"]
+script = ExtResource("2_cceyk")
+amount = 5
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_027mc"]
+script = ExtResource("4_0xyik")
+metadata/_custom_type_script = "uid://bq3vaac3lms2k"
+
+[resource]
+script = ExtResource("3_frg0h")
+skill_name = "Rock Rain"
+description = "Deal 5 damage. Bombard"
+effects = Array[ExtResource("1_q6jcv")]([SubResource("Resource_82oy8")])
+target_pattern = SubResource("Resource_027mc")
+cast_time = 2
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

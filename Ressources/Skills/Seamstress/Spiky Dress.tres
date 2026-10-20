@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://c40gvq6frpgau"
 [resource]
 script = ExtResource("3_5xx3s")
 skill_name = "Spiky Dress"
+description = "Gain 5 spike"
 effects = Array[ExtResource("1_mbpup")]([SubResource("Resource_5jqi2")])
 target_pattern = SubResource("Resource_5xx3s")
 cast_time = 2

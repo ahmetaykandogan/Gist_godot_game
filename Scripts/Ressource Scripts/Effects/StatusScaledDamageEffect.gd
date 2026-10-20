@@ -18,6 +18,6 @@ func execute(user, pattern, slots) -> void:
 		if stacks > 0:
 			user.deal_damage(target, stacks * damage_per_stack)
 		if consume and read_from == Holder.TARGET:
-			target.statuses.erase(status)
+			target.remove_status(status)
 	if consume and read_from == Holder.USER:
-		user.statuses.erase(status)                       # spent once, after every target was hit
+		user.remove_status(status)                       # spent once, after every target was hit

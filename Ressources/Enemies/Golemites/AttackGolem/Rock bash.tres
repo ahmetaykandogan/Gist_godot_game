@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=11 format=3 uid="uid://bkgwc0jpokdbe"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_chm25"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_mjus8"]
+[ext_resource type="Script" uid="uid://cyfgr80vo3j72" path="res://Scripts/Ressource Scripts/Effects/StatusScaledDamageEffect.gd" id="2_w4abj"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_mjus8"]
+[ext_resource type="Script" uid="uid://c40gvq6frpgau" path="res://Scripts/Ressource Scripts/Targeting/SelfTarget.gd" id="3_vjmdp"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="6_mjus8"]
+
+[sub_resource type="Resource" id="Resource_opfea"]
+script = ExtResource("3_vjmdp")
+metadata/_custom_type_script = "uid://c40gvq6frpgau"
+
+[sub_resource type="Resource" id="Resource_vjmdp"]
+script = ExtResource("2_mjus8")
+status = "Shield"
+stacks = 10
+target_pattern = SubResource("Resource_opfea")
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_vjg2u"]
+script = ExtResource("2_w4abj")
+status = "Shield"
+damage_per_stack = 1
+consume = false
+metadata/_custom_type_script = "uid://cyfgr80vo3j72"
+
+[sub_resource type="Resource" id="Resource_r2uc5"]
+script = ExtResource("6_mjus8")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("3_mjus8")
+skill_name = "Rock bash"
+description = "Gain 10 shield. Deal damage equal to shield"
+effects = Array[ExtResource("1_chm25")]([SubResource("Resource_vjmdp"), SubResource("Resource_vjg2u")])
+target_pattern = SubResource("Resource_r2uc5")
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

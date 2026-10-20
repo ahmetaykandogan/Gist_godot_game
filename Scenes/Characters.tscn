@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://w8imsrlfu3bk"]
+[gd_scene load_steps=6 format=3 uid="uid://w8imsrlfu3bk"]
 
 [ext_resource type="Script" uid="uid://c507srge8l8gb" path="res://Scripts/Base_Code/Node Script/character.gd" id="1_av83q"]
 [ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://Arts/PlaceHolder/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="2_65mav"]
+[ext_resource type="Script" uid="uid://bjq4by2dwcikb" path="res://Scripts/Base_Code/Non Owned Script/StatusBar.gd" id="3_65mav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
 size = Vector2(123.5, 203)
@@ -25,10 +26,10 @@ texture = ExtResource("2_65mav")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(140, 5)
-offset_left = -52.0
-offset_top = 126.0
-offset_right = 88.0
-offset_bottom = 153.0
+offset_left = -45.0
+offset_top = 120.0
+offset_right = 95.0
+offset_bottom = 147.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.35118848, 0.9999998, 0.33536977, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -50,6 +51,20 @@ offset_bottom = -64.0
 
 [node name="Label" type="Label" parent="CastBox"]
 layout_mode = 2
+
+[node name="Description Box" type="PanelContainer" parent="."]
+visible = false
+offset_left = -32.0
+offset_top = 54.0
+offset_right = 72.0
+offset_bottom = 77.0
+
+[node name="Label" type="Label" parent="Description Box"]
+layout_mode = 2
+
+[node name="StatusBar" type="HFlowContainer" parent="."]
+script = ExtResource("3_65mav")
+metadata/_custom_type_script = "uid://bjq4by2dwcikb"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

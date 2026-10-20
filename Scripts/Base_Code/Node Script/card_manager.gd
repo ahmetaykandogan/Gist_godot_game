@@ -64,6 +64,24 @@ func finish_drag(slot):
 	card_being_dragged.z_index = 1
 	card_being_dragged = null
 
+func start_move(unit) -> void:
+	card_being_dragged = unit
+	drag_offset = unit.global_position - get_global_mouse_position()
+	unit.z_index = 10
+
+func finish_move(target_slot) -> void:
+	var unit = card_being_dragged
+	card_being_dragged = null
+	if not is_instance_valid(unit):
+		return
+	unit.z_index = 1
+	var moved := false
+	if target_slot and slot_manager.is_ally_slot(target_slot):
+		moved = slot_manager.relocate(unit, target_slot)
+	if moved:
+		unit.moves_left -= 1
+	else:                                   # invalid drop: slide back
+		create_tween().tween_property(unit, "global_position", unit.slot.global_position, 0.15)
 # ----------------------------- HOVER -------------------------------------------
 
 func on_hovered_over_card(card):

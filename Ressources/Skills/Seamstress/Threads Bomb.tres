@@ -7,6 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_4a4c6"]
 script = ExtResource("2_voewy")
+damage_per_stack = 5
 metadata/_custom_type_script = "uid://cyfgr80vo3j72"
 
 [sub_resource type="Resource" id="Resource_x7lh8"]
@@ -16,6 +17,7 @@ metadata/_custom_type_script = "uid://dx6wocctvkkg0"
 [resource]
 script = ExtResource("3_nx7o6")
 skill_name = "Threads Bomb"
+description = "Lose all spike. Deal 5 damage for every spike lost to target"
 effects = Array[ExtResource("1_q4816")]([SubResource("Resource_4a4c6")])
 target_pattern = SubResource("Resource_x7lh8")
 cast_time = 2

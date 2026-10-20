@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://dx6wocctvkkg0"
 [resource]
 script = ExtResource("2_fxto1")
 skill_name = "Bite"
+description = "Deal 5 damage"
 effects = Array[ExtResource("1_wiwq0")]([SubResource("Resource_d0kqn")])
 target_pattern = SubResource("Resource_auuxo")
 cast_time = 3

@@ -14,6 +14,8 @@ var dying := false
 var pending_skill: SkillData      # skill being charged (cast box)
 var turns_left := 0
 var _dealt_damage := false        # did the skill in progress deal damage? (spends Fury)
+var description = ""
+signal statuses_changed           # emitted whenever a status is added, consumed or removed
 
 
 # =============================== STATUSES ====================================
@@ -22,6 +24,7 @@ func get_stacks(status: String) -> int:
 
 func add_status(status: String, stacks: int = 1) -> void:
 	statuses[status] = get_stacks(status) + stacks
+	statuses_changed.emit()
 
 func consume_status(status: String, stacks: int = 1) -> bool:   # true if the status was active
 	var left := get_stacks(status) - stacks
@@ -31,7 +34,12 @@ func consume_status(status: String, stacks: int = 1) -> bool:   # true if the st
 		statuses[status] = left
 	else:
 		statuses.erase(status)
+	statuses_changed.emit()
 	return true
+
+func remove_status(status: String) -> void:       # removes every stack
+	if statuses.erase(status):
+		statuses_changed.emit()
 
 
 # ============================= DAMAGE PIPELINE ================================
@@ -57,6 +65,11 @@ func _modify_incoming(hit: Hit) -> void:
 	if consume_status("Curse"):
 		hit.amount *= 2
 	# add defender buffs/debuffs here (Shield, Vulnerable...)
+	var shield := get_stacks("Shield")
+	if consume_status("Shield", hit.amount):
+		hit.amount -= shield
+		if hit.amount<0:
+			hit.amount=0
 	hit.amount = maxi(hit.amount, 0)
 
 func _receive_hit(hit: Hit) -> void:
@@ -110,10 +123,14 @@ func use_skill(skill: SkillData) -> void:
 	for effect in skill.effects:
 		if dying:
 			return
+		var pattern = effect.target_pattern if effect.target_pattern else skill.target_pattern
+		if not pattern:
+			push_warning(skill.skill_name + ": an effect has no target pattern")
+			continue
 		@warning_ignore("redundant_await")
-		await effect.execute(self, skill.target_pattern, slot_manager)
+		await effect.execute(self, pattern, slot_manager)
 	if _dealt_damage:
-		statuses.erase("Fury")         # Fury is spent once, after every hit of the skill
+		remove_status("Fury")
 
 func begin_cast(skill: SkillData) -> void:
 	if skill.cast_time <= 0:
@@ -121,7 +138,9 @@ func begin_cast(skill: SkillData) -> void:
 		return
 	pending_skill = skill
 	turns_left = skill.cast_time
+	description = skill.description
 	update_cast_box()
+	$"Description Box".visible = true
 
 func tick_cast() -> void:              # called at the end of the owner's turn
 	if not pending_skill or dying:
@@ -133,13 +152,14 @@ func tick_cast() -> void:              # called at the end of the owner's turn
 		var skill = pending_skill
 		pending_skill = null
 		update_cast_box()
+		$"Description Box".visible = false
 		await use_skill(skill)
 
 func update_cast_box() -> void:
 	$CastBox.visible = pending_skill != null
 	if pending_skill:
 		$CastBox/Label.text = str(turns_left)
-
+	$"Description Box"/Label.text = description
 
 # ================================== VISUALS ===================================
 func setup_sprite(texture: Texture2D) -> void:

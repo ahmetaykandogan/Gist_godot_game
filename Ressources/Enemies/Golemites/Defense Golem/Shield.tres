@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://cpxq37508of2w"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_uggr8"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_0xjbk"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_2ig7i"]
+[ext_resource type="Script" uid="uid://cbhbqb0mv24bl" path="res://Scripts/Ressource Scripts/Targeting/SelfbarrageTarget.gd" id="4_npi4h"]
+
+[sub_resource type="Resource" id="Resource_kdn6a"]
+script = ExtResource("2_0xjbk")
+status = "Shield"
+stacks = 20
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_oowlj"]
+script = ExtResource("4_npi4h")
+metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
+
+[resource]
+script = ExtResource("3_2ig7i")
+skill_name = "Shield"
+description = "Give ally lane 20 shield"
+effects = Array[ExtResource("1_uggr8")]([SubResource("Resource_kdn6a")])
+target_pattern = SubResource("Resource_oowlj")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

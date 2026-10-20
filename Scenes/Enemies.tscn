@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://8hqee01qa4lj"]
+[gd_scene load_steps=6 format=3 uid="uid://8hqee01qa4lj"]
 
 [ext_resource type="Script" uid="uid://cjd06xhbpo8ha" path="res://Scripts/Base_Code/Node Script/Enemies.gd" id="1_tbl8x"]
 [ext_resource type="Texture2D" uid="uid://beyv5ntvar5dj" path="res://Arts/PlaceHolder/all-full-art-cards-ancient-cards-v0-d3g72w549npg1.jpg" id="2_2v8rc"]
+[ext_resource type="Script" uid="uid://bjq4by2dwcikb" path="res://Scripts/Base_Code/Non Owned Script/StatusBar.gd" id="3_2v8rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
 size = Vector2(161, 248)
@@ -52,3 +53,17 @@ offset_bottom = -64.0
 
 [node name="Label" type="Label" parent="CastBox"]
 layout_mode = 2
+
+[node name="Description Box" type="PanelContainer" parent="."]
+visible = false
+offset_left = -32.0
+offset_top = 54.0
+offset_right = 72.0
+offset_bottom = 77.0
+
+[node name="Label" type="Label" parent="Description Box"]
+layout_mode = 2
+
+[node name="StatusBar" type="HFlowContainer" parent="."]
+script = ExtResource("3_2v8rc")
+metadata/_custom_type_script = "uid://bjq4by2dwcikb"

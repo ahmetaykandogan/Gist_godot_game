@@ -16,6 +16,6 @@ enemy_name = "Zombie"
 texture = ExtResource("5_omc1f")
 max_health = 25
 skills = Array[ExtResource("3_c8w5o")]([ExtResource("4_hldlj")])
-allowed_columns = Array[int]([3, 4])
+allowed_columns = Array[int]([3, 4, 5])
 ai = SubResource("Resource_h6ikx")
 metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

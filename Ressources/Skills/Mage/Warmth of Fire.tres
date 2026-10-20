@@ -24,6 +24,7 @@ metadata/_custom_type_script = "uid://b3is5pfp4h7eb"
 [resource]
 script = ExtResource("2_dpg18")
 skill_name = "Warmth of Fire"
+description = "Heal and shield 10 ally in front"
 effects = Array[ExtResource("1_cqr5k")]([SubResource("Resource_ojjgx"), SubResource("Resource_vrw1v")])
 target_pattern = SubResource("Resource_8w5g5")
 cast_time = 3

@@ -1,5 +1,7 @@
 class_name SkillEffect
 extends Resource
+
+@export var target_pattern: TargetPattern   # optional: overrides the skill's pattern for this effect
 ## Base type of everything a skill can do (damage, heal, status...).
 
 ## Runs this effect for a whole skill. Simple effects only override apply();
