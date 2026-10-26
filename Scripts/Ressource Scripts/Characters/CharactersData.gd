@@ -5,3 +5,4 @@ extends Resource
 @export var texture: Texture2D
 @export var max_health: int
 @export var skills: Array[SkillData] = []
+@export var auras: Array[Aura]

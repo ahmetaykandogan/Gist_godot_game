@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://bq3vaac3lms2k"
 [resource]
 script = ExtResource("2_fm78p")
 skill_name = "Curse them all!"
-description = "Add 3 Curse to enemy line"
+description = "Add 3 Curse. Barrage"
 effects = Array[ExtResource("1_jyv1d")]([SubResource("Resource_4ytr8")])
 target_pattern = SubResource("Resource_pkhcr")
 cast_time = 5

@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://bq3vaac3lms2k"
 [resource]
 script = ExtResource("2_tys10")
 skill_name = "Needle Dive"
-description = "Deal 5 damage to enemy line"
+description = "Barrage"
 effects = Array[ExtResource("1_056hg")]([SubResource("Resource_h2iha")])
 target_pattern = SubResource("Resource_sne6x")
 cast_time = 3

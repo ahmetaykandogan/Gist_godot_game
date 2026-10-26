@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://bq3vaac3lms2k"
 [resource]
 script = ExtResource("3_frg0h")
 skill_name = "Rock Rain"
-description = "Deal 5 damage. Bombard"
+description = "Bombard"
 effects = Array[ExtResource("1_q6jcv")]([SubResource("Resource_82oy8")])
 target_pattern = SubResource("Resource_027mc")
 cast_time = 2

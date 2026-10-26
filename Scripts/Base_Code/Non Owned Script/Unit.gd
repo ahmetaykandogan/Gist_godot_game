@@ -16,7 +16,8 @@ var turns_left := 0
 var _dealt_damage := false        # did the skill in progress deal damage? (spends Fury)
 var description = ""
 signal statuses_changed           # emitted whenever a status is added, consumed or removed
-
+@onready var passive_manager = get_node_or_null("../../PassiveManager")
+var auras: Array[Aura] = []       # the auras this unit owns
 
 # =============================== STATUSES ====================================
 func get_stacks(status: String) -> int:
@@ -24,7 +25,7 @@ func get_stacks(status: String) -> int:
 
 func add_status(status: String, stacks: int = 1) -> void:
 	statuses[status] = get_stacks(status) + stacks
-	statuses_changed.emit()
+	_notify_statuses()
 
 func consume_status(status: String, stacks: int = 1) -> bool:   # true if the status was active
 	var left := get_stacks(status) - stacks
@@ -34,16 +35,19 @@ func consume_status(status: String, stacks: int = 1) -> bool:   # true if the st
 		statuses[status] = left
 	else:
 		statuses.erase(status)
-	statuses_changed.emit()
+	_notify_statuses()
 	return true
 
 func remove_status(status: String) -> void:       # removes every stack
 	if statuses.erase(status):
-		statuses_changed.emit()
+		_notify_statuses()
 
+func _notify_statuses() -> void:
+	statuses_changed.emit()
+	update_damage_box()
 
 # ============================= DAMAGE PIPELINE ================================
-# deal_damage()  ->  attacker modifiers  ->  defender modifiers  ->  health loss  ->  reactions
+# deal_damage()  ->  attacker modifiers (Fury, auras)  ->  defender modifiers  ->  health loss  ->  reactions
 # Flat bonuses are applied by the attacker first, multipliers by the defender after.
 
 func deal_damage(target, base: int, reflected: bool = false) -> void:
@@ -56,9 +60,20 @@ func deal_damage(target, base: int, reflected: bool = false) -> void:
 	target._receive_hit(hit)
 
 func _modify_outgoing(hit: Hit) -> void:
-	# Fury: every hit of the attack deals +1 per stack (stacks are spent after the whole skill)
 	hit.amount += get_stacks("Fury")
+	_modify_by_aura(hit)
 	# add attacker buffs/debuffs here (Weak, Strength...)
+
+# The damage this unit would deal for a base value, before any target is known (shown on the card).
+# It runs the very same steps as a real hit, so the card always matches what happens.
+func outgoing_damage(base: int) -> int:
+	var preview := Hit.new(self, null, base)
+	_modify_outgoing(preview)
+	return preview.amount
+
+func _modify_by_aura(hit: Hit) -> void:
+	if passive_manager:
+		passive_manager.modify(hit)
 
 func _modify_incoming(hit: Hit) -> void:
 	# Curse: the next hit taken is doubled (one stack per hit)
@@ -105,6 +120,8 @@ func die() -> void:
 	if dying:
 		return
 	dying = true
+	if passive_manager:
+		passive_manager.unit_left(self)    # its auras stop applying
 	if slot:
 		var lane = slot.row
 		var ally_side = slot_manager.is_ally_slot(slot)
@@ -115,6 +132,7 @@ func die() -> void:
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
 	queue_free()
+
 
 
 # ================================== SKILLS ====================================
@@ -131,15 +149,17 @@ func use_skill(skill: SkillData) -> void:
 		await effect.execute(self, pattern, slot_manager)
 	if _dealt_damage:
 		remove_status("Fury")
+	update_damage_box()
 
 func begin_cast(skill: SkillData) -> void:
 	if skill.cast_time <= 0:
-		use_skill(skill)               # instant skill
+		use_skill(skill)
 		return
 	pending_skill = skill
 	turns_left = skill.cast_time
 	description = skill.description
 	update_cast_box()
+	update_damage_box()
 	$"Description Box".visible = true
 
 func tick_cast() -> void:              # called at the end of the owner's turn
@@ -172,3 +192,20 @@ func setup_sprite(texture: Texture2D) -> void:
 	shape.size = Layout.CARD_SIZE
 	$Area2D/CollisionShape2D.shape = shape
 	health_bar.position.y = Layout.CARD_SIZE.y / 2 + 6
+
+func damage_text(skill: SkillData) -> String:
+	var parts: Array[String] = []
+	for effect in skill.effects:
+		var preview: Array = effect.preview_damage(self)
+		if preview.is_empty():
+			continue
+		parts.append(str(preview[0]) if preview[1] <= 1 else "%d*%d" % [preview[0], preview[1]])
+	return " + ".join(parts)
+
+func update_damage_box() -> void:
+	var text := damage_text(pending_skill) if pending_skill else ""
+	if text == "":
+		$"Damage Box".visible = false
+		return
+	$"Damage Box".visible = true
+	$"Damage Box"/"Damage Label".text = text

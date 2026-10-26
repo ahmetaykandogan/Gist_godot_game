@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Aura" load_steps=2 format=3 uid="uid://b3205e5m8tgu0"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_yu47l"]
+
+[resource]
+script = ExtResource("1_yu47l")
+aura_name = "Childs of the forest"
+affects = 1
+include_self = false
+metadata/_custom_type_script = "uid://b6hgcugncxug2"

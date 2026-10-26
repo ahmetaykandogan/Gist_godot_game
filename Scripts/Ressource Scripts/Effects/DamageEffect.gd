@@ -18,3 +18,6 @@ func execute(user, pattern, slots) -> void:
 			user.deal_damage(target, amount)
 		if i < hit_time - 1:
 			await user.get_tree().create_timer(hit_delay).timeout
+
+func preview_damage(user) -> Array:
+	return [user.outgoing_damage(amount), hit_time]

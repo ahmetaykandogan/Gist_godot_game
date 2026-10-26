@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://c3e301asgp8g6"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://c3e301asgp8g6"]
 
 [ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_n2wr3"]
 [ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="1_s12xg"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_7jk0l"]
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="2_653r7"]
 [ext_resource type="Resource" uid="uid://dbp5jeng5tupe" path="res://Ressources/Enemies/Golemites/Bombardier/Rock Rain.tres" id="4_653r7"]
 [ext_resource type="Texture2D" uid="uid://duhrlfisxldx5" path="res://Arts/Actual art/Bombard golem (1).jpg" id="5_16auc"]
 
@@ -16,6 +17,6 @@ enemy_name = "Bombardier Golem"
 texture = ExtResource("5_16auc")
 max_health = 5
 skills = Array[ExtResource("2_7jk0l")]([ExtResource("4_653r7")])
-allowed_columns = Array[int]([5])
+priority = 1
 ai = SubResource("Resource_653r7")
 metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

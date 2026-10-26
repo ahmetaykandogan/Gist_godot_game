@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://snnmemtkm31k"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_ylbqb"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_c1p65"]
+[ext_resource type="Script" uid="uid://bwhtohxbl8pqj" path="res://Scripts/Ressource Scripts/Effects/HealEffect.gd" id="2_ox7du"]
+[ext_resource type="Script" uid="uid://cbhbqb0mv24bl" path="res://Scripts/Ressource Scripts/Targeting/SelfbarrageTarget.gd" id="4_4suwf"]
+
+[sub_resource type="Resource" id="Resource_csjw4"]
+script = ExtResource("2_ox7du")
+amount = 5
+metadata/_custom_type_script = "uid://bwhtohxbl8pqj"
+
+[sub_resource type="Resource" id="Resource_0mwq0"]
+script = ExtResource("4_4suwf")
+metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
+
+[resource]
+script = ExtResource("2_c1p65")
+skill_name = "Forest Chant"
+description = "Heal 5. Barrage"
+effects = Array[ExtResource("1_ylbqb")]([SubResource("Resource_csjw4")])
+target_pattern = SubResource("Resource_0mwq0")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

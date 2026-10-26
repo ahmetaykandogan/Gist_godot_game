@@ -13,3 +13,6 @@ func execute(user, pattern, slots) -> void:
 
 func apply(_target, _source = null) -> void:
 	pass
+
+func preview_damage(_user) -> Array:
+	return []

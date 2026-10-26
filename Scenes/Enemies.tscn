@@ -46,10 +46,10 @@ offset_right = 87.0
 offset_bottom = 24.0
 
 [node name="CastBox" type="PanelContainer" parent="."]
-offset_left = -19.0
-offset_top = -104.0
-offset_right = 21.0
-offset_bottom = -64.0
+offset_left = 33.0
+offset_top = -106.0
+offset_right = 73.0
+offset_bottom = -66.0
 
 [node name="Label" type="Label" parent="CastBox"]
 layout_mode = 2
@@ -67,3 +67,13 @@ layout_mode = 2
 [node name="StatusBar" type="HFlowContainer" parent="."]
 script = ExtResource("3_2v8rc")
 metadata/_custom_type_script = "uid://bjq4by2dwcikb"
+
+[node name="Damage Box" type="PanelContainer" parent="."]
+visible = false
+offset_left = -75.0
+offset_top = -104.0
+offset_right = -35.0
+offset_bottom = -64.0
+
+[node name="Damage Label" type="Label" parent="Damage Box"]
+layout_mode = 2

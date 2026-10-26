@@ -18,7 +18,6 @@ metadata/_custom_type_script = "uid://dx6wocctvkkg0"
 [resource]
 script = ExtResource("2_82w4p")
 skill_name = "Ice Shards"
-description = "Deal 5*2 damage to target"
 effects = Array[ExtResource("1_77w2x")]([SubResource("Resource_17336")])
 target_pattern = SubResource("Resource_eum5u")
 cast_time = 2

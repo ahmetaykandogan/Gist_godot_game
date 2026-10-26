@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://culeftm7v088b"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_jwnth"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_6gabx"]
+[ext_resource type="Resource" uid="uid://b3205e5m8tgu0" path="res://Ressources/Enemies/Forestriers/Drumer/Childs of the forest.tres" id="2_h6u7e"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_c0ihl"]
+[ext_resource type="Resource" uid="uid://snnmemtkm31k" path="res://Ressources/Enemies/Forestriers/Drumer/Forest Chant.tres" id="5_lnm6h"]
+[ext_resource type="Texture2D" uid="uid://dskgj7hieah3s" path="res://Arts/Bard.jpg" id="6_slfnu"]
+
+[resource]
+script = ExtResource("2_6gabx")
+enemy_name = "Drumer"
+texture = ExtResource("6_slfnu")
+max_health = 15
+skills = Array[ExtResource("3_c0ihl")]([ExtResource("5_lnm6h")])
+auras = Array[ExtResource("1_jwnth")]([ExtResource("2_h6u7e")])
+priority = 2
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

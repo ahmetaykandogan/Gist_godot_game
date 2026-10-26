@@ -37,4 +37,5 @@ func end_player_turn():
 			await c.tick_cast()
 			await get_tree().create_timer(0.1).timeout
 	await $"EnemyManager".run_enemy_turn()
+	$"EnemyManager".tick_wave_counter()
 	start_player_turn()

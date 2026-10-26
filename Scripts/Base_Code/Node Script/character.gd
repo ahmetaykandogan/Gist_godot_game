@@ -19,7 +19,7 @@ func _ready() -> void:
 	setup_sprite(data.texture)
 	health_bar.max_value = max_health
 	update_health_bar()
-
+	auras = data.auras.duplicate()
 
 func can_move() -> bool:
 	return moves_left > 0 and not dying and slot != null

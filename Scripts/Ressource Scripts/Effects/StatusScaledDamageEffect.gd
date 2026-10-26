@@ -21,3 +21,8 @@ func execute(user, pattern, slots) -> void:
 			target.remove_status(status)
 	if consume and read_from == Holder.USER:
 		user.remove_status(status)                       # spent once, after every target was hit
+
+func preview_damage(user) -> Array:
+	if read_from != Holder.USER:
+		return []                       # depends on the target, unknown in advance
+	return [user.outgoing_damage(user.get_stacks(status) * damage_per_stack), 1]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=15 format=3 uid="uid://dydoglgid6c03"]
+
+[ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
+[ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
+[ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="3_erwvk"]
+[ext_resource type="Script" uid="uid://drxfhy8m6q0la" path="res://Scripts/Base_Code/Node Script/Character_Hand.gd" id="3_v1gob"]
+[ext_resource type="Script" uid="uid://mojmg4jh01f2" path="res://Scripts/Base_Code/Node Script/card_manager.gd" id="4_jw32o"]
+[ext_resource type="Resource" uid="uid://bte6gt6aouk0l" path="res://Ressources/Characters/Major Characters/Seamstress.tres" id="5_grg3l"]
+[ext_resource type="Script" uid="uid://d4mex43tf5y2q" path="res://Scripts/Base_Code/Node Script/Input_Manager.gd" id="5_pbw6q"]
+[ext_resource type="Resource" uid="uid://cxwifhqdwqh83" path="res://Ressources/Characters/Major Characters/Elite Mage.tres" id="6_frkhe"]
+[ext_resource type="Script" uid="uid://cu3m2ldk3gyoj" path="res://Scripts/Base_Code/Node Script/EnemyManager.gd" id="11_2w5on"]
+[ext_resource type="Resource" uid="uid://culeftm7v088b" path="res://Ressources/Enemies/Forestriers/Drumer/Drumer.tres" id="11_h1m7h"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="12_346fj"]
+[ext_resource type="Resource" uid="uid://c3e301asgp8g6" path="res://Ressources/Enemies/Golemites/Bombardier/Bombardier Golem.tres" id="12_erwvk"]
+[ext_resource type="PackedScene" uid="uid://bxoue2xd6d5sl" path="res://Scenes/Skill_Table.tscn" id="14_1p5hy"]
+[ext_resource type="Script" uid="uid://c5cyuhi62jipn" path="res://Scripts/Base_Code/Node Script/Passive_manager.gd" id="14_erwvk"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_rgh2o")
+
+[node name="CombatStartButton" type="Node2D" parent="."]
+position = Vector2(1764, 842)
+
+[node name="Button" type="Button" parent="CombatStartButton"]
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 83.0
+text = "Start"
+
+[node name="EndTurnButton" type="Node2D" parent="."]
+visible = false
+position = Vector2(1766, 842)
+
+[node name="Button" type="Button" parent="EndTurnButton"]
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 83.0
+text = "End turn"
+
+[node name="CharacterHand" type="Node2D" parent="."]
+script = ExtResource("3_v1gob")
+roster = Array[ExtResource("3_erwvk")]([ExtResource("5_grg3l"), ExtResource("6_frkhe")])
+
+[node name="SlotManager" type="Node2D" parent="."]
+script = ExtResource("2_pbw6q")
+
+[node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("11_2w5on")
+enemy_pool = Array[ExtResource("12_346fj")]([ExtResource("12_erwvk"), ExtResource("11_h1m7h")])
+wave_interval = 5
+wave_size_min = 3
+wave_size_max = 4
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("4_jw32o")
+
+[node name="PassiveManager" type="Node2D" parent="."]
+script = ExtResource("14_erwvk")
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("5_pbw6q")
+
+[node name="SkillTable" parent="." instance=ExtResource("14_1p5hy")]
+visible = false
+
+[node name="WaveCounter" type="Label" parent="."]
+offset_left = 921.0
+offset_top = 73.0
+offset_right = 961.0
+offset_bottom = 96.0
+
+[connection signal="pressed" from="CombatStartButton/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndTurnButton/Button" to="." method="_on_end_turn_pressed"]

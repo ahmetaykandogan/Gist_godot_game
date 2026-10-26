@@ -10,6 +10,7 @@ func _ready() -> void:
 	setup_sprite(data.texture)
 	health_bar.max_value = max_health
 	update_health_bar()
+	auras = data.auras.duplicate()
 	
 func choose_action():
 	if pending_skill or not data.ai:
