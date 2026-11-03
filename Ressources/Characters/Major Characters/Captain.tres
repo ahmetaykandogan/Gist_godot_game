@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=9 format=3 uid="uid://br7w8a338dp8b"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_rsxac"]
+[ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="2_oe6df"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_r8x64"]
+[ext_resource type="Resource" uid="uid://51hu4b8jefiy" path="res://Ressources/Skills/Captain/Big swing.tres" id="4_1n5ar"]
+[ext_resource type="Resource" uid="uid://muhn1k4b1e8i" path="res://Ressources/Skills/Captain/Kick.tres" id="5_tkj47"]
+[ext_resource type="Resource" uid="uid://icjya3g22oma" path="res://Ressources/Skills/Captain/Rally.tres" id="6_jwcnb"]
+[ext_resource type="Texture2D" uid="uid://c6akkn3ymfjhu" path="res://Arts/PlaceHolder/Knight.jpg" id="7_83lpt"]
+[ext_resource type="Resource" uid="uid://mcllgtlouudv" path="res://Ressources/Skills/Captain/Fury Strike.tres" id="7_oe6df"]
+
+[resource]
+script = ExtResource("2_oe6df")
+character_name = "Captain"
+texture = ExtResource("7_83lpt")
+max_health = 60
+skills = Array[ExtResource("3_r8x64")]([ExtResource("4_1n5ar"), ExtResource("5_tkj47"), ExtResource("6_jwcnb"), ExtResource("7_oe6df")])
+metadata/_custom_type_script = "uid://bsmvohvkwavui"

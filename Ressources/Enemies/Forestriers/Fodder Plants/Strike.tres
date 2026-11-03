@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://equu6t5tfngq"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_wbd6j"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_32cg3"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_l4e3s"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="4_m47it"]
+
+[sub_resource type="Resource" id="Resource_mbtf6"]
+script = ExtResource("2_l4e3s")
+amount = 5
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_0pdbt"]
+script = ExtResource("4_m47it")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_32cg3")
+skill_name = "Strike"
+effects = Array[ExtResource("1_wbd6j")]([SubResource("Resource_mbtf6")])
+target_pattern = SubResource("Resource_0pdbt")
+cast_time = 4
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

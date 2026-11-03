@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://go7xp1xtlwt2"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_1ncfx"]
+[ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_omfug"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_s02nl"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_ufasj"]
+[ext_resource type="Texture2D" uid="uid://bxc3x7nl34150" path="res://Arts/PlaceHolder/Fodder.jpg" id="4_s02nl"]
+[ext_resource type="Resource" uid="uid://equu6t5tfngq" path="res://Ressources/Enemies/Forestriers/Fodder Plants/Strike.tres" id="5_ojtdd"]
+
+[sub_resource type="Resource" id="Resource_ai6di"]
+script = ExtResource("1_omfug")
+metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
+
+[resource]
+script = ExtResource("2_s02nl")
+enemy_name = "Fodder"
+texture = ExtResource("4_s02nl")
+max_health = 5
+skills = Array[ExtResource("3_ufasj")]([ExtResource("5_ojtdd")])
+priority = 3
+ai = SubResource("Resource_ai6di")
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

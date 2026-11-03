@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=8 format=3 uid="uid://cbivfe5ui834c"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_byy00"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_4akvd"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_6tome"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="3_8bnda"]
+
+[sub_resource type="Resource" id="Resource_gys4w"]
+script = ExtResource("3_8bnda")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[sub_resource type="Resource" id="Resource_bsx2v"]
+script = ExtResource("2_6tome")
+amount = 5
+hit_time = 4
+hit_delay = 0.1
+target_pattern = SubResource("Resource_gys4w")
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_xfmmj"]
+script = ExtResource("3_8bnda")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_4akvd")
+skill_name = "Stick Strikes"
+effects = Array[ExtResource("1_byy00")]([SubResource("Resource_bsx2v")])
+target_pattern = SubResource("Resource_xfmmj")
+cast_time = 4
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

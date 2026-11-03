@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=8 format=3 uid="uid://bte6gt6aouk0l"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=9 format=3 uid="uid://bte6gt6aouk0l"]
 
 [ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="1_4r1ug"]
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_83aln"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_ii44n"]
 [ext_resource type="Texture2D" uid="uid://clg4lgwdya2o7" path="res://Arts/Actual art/Seamstress.jpg" id="3_ii44n"]
 [ext_resource type="Resource" uid="uid://kn1hoypfutle" path="res://Ressources/Skills/Seamstress/Spiky Dress.tres" id="3_oq5nw"]
@@ -12,6 +13,6 @@
 script = ExtResource("1_4r1ug")
 character_name = "Seamstress"
 texture = ExtResource("3_ii44n")
-max_health = 25
+max_health = 30
 skills = Array[ExtResource("2_ii44n")]([ExtResource("3_oq5nw"), ExtResource("4_7ojcw"), ExtResource("5_7ojcw"), ExtResource("6_ikmxa")])
 metadata/_custom_type_script = "uid://bsmvohvkwavui"

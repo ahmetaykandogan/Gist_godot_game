@@ -18,8 +18,8 @@ metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
 [resource]
 script = ExtResource("3_2ig7i")
 skill_name = "Shield"
-description = "Give ally lane 20 shield"
+description = "Give 20 shield. Barrage"
 effects = Array[ExtResource("1_uggr8")]([SubResource("Resource_kdn6a")])
 target_pattern = SubResource("Resource_oowlj")
-cast_time = 4
+cast_time = 5
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

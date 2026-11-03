@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://icjya3g22oma"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_vblvl"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_0fmvx"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_pvkew"]
+[ext_resource type="Script" uid="uid://cbhbqb0mv24bl" path="res://Scripts/Ressource Scripts/Targeting/SelfbarrageTarget.gd" id="3_npjkb"]
+[ext_resource type="Script" uid="uid://bwhtohxbl8pqj" path="res://Scripts/Ressource Scripts/Effects/HealEffect.gd" id="4_yrx0k"]
+
+[sub_resource type="Resource" id="Resource_h0i2i"]
+script = ExtResource("3_npjkb")
+metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
+
+[sub_resource type="Resource" id="Resource_t3ovr"]
+script = ExtResource("2_pvkew")
+status = "Fury"
+stacks = 5
+target_pattern = SubResource("Resource_h0i2i")
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_t4r53"]
+script = ExtResource("4_yrx0k")
+amount = 5
+metadata/_custom_type_script = "uid://bwhtohxbl8pqj"
+
+[sub_resource type="Resource" id="Resource_n2evu"]
+script = ExtResource("3_npjkb")
+metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
+
+[resource]
+script = ExtResource("2_0fmvx")
+skill_name = "Rally the troops"
+description = "Fury 5. Heal 5. Barrage"
+effects = Array[ExtResource("1_vblvl")]([SubResource("Resource_t3ovr"), SubResource("Resource_t4r53")])
+target_pattern = SubResource("Resource_n2evu")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

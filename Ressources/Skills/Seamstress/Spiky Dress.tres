@@ -21,5 +21,5 @@ skill_name = "Spiky Dress"
 description = "Gain 5 spike"
 effects = Array[ExtResource("1_mbpup")]([SubResource("Resource_5jqi2")])
 target_pattern = SubResource("Resource_5xx3s")
-cast_time = 2
+cast_time = 3
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

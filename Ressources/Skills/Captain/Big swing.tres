@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://51hu4b8jefiy"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_8c5mx"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_8spq1"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_w1wyd"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="4_8spq1"]
+
+[sub_resource type="Resource" id="Resource_bjr1n"]
+script = ExtResource("2_8spq1")
+amount = 30
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_v413c"]
+script = ExtResource("4_8spq1")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_w1wyd")
+skill_name = "Big Swing"
+effects = Array[ExtResource("1_8c5mx")]([SubResource("Resource_bjr1n")])
+target_pattern = SubResource("Resource_v413c")
+cast_time = 4
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

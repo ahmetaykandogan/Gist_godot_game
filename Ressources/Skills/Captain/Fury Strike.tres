@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://mcllgtlouudv"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_0q0k1"]
+[ext_resource type="Script" uid="uid://cyfgr80vo3j72" path="res://Scripts/Ressource Scripts/Effects/StatusScaledDamageEffect.gd" id="2_532fb"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_wncq0"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="4_jdlyt"]
+
+[sub_resource type="Resource" id="Resource_bnro8"]
+script = ExtResource("2_532fb")
+status = "Fury"
+damage_per_stack = 2
+metadata/_custom_type_script = "uid://cyfgr80vo3j72"
+
+[sub_resource type="Resource" id="Resource_tbln2"]
+script = ExtResource("4_jdlyt")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_wncq0")
+skill_name = "Fury strike"
+description = "Triple the effect of fury"
+effects = Array[ExtResource("1_0q0k1")]([SubResource("Resource_bnro8")])
+target_pattern = SubResource("Resource_tbln2")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

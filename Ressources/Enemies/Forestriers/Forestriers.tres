@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyGroup" load_steps=6 format=3 uid="uid://bu805v5gqt4a2"]
+
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="1_h5o4r"]
+[ext_resource type="Script" uid="uid://ckrnxt4quko26" path="res://Scripts/Ressource Scripts/Enemy/EnemyGroup.gd" id="2_03ncm"]
+[ext_resource type="Resource" uid="uid://go7xp1xtlwt2" path="res://Ressources/Enemies/Forestriers/Fodder Plants/Fodder.tres" id="2_pxnyh"]
+[ext_resource type="Resource" uid="uid://dsif4nse1txuc" path="res://Ressources/Enemies/Forestriers/Warrior/Forestier Warrior.tres" id="3_wper0"]
+[ext_resource type="Resource" uid="uid://culeftm7v088b" path="res://Ressources/Enemies/Forestriers/Drumer/Drumer.tres" id="4_eouf2"]
+
+[resource]
+script = ExtResource("2_03ncm")
+group_name = "Forestriers"
+enemies = Array[ExtResource("1_h5o4r")]([ExtResource("2_pxnyh"), ExtResource("3_wper0"), ExtResource("4_eouf2")])
+metadata/_custom_type_script = "uid://ckrnxt4quko26"

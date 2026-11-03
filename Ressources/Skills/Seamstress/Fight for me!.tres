@@ -15,4 +15,5 @@ skill_name = "Fight for me!"
 description = "Give 5 fury to ally line"
 effects = Array[ExtResource("1_5d466")]([ExtResource("2_7v1ly")])
 target_pattern = SubResource("Resource_moh1f")
+cast_time = 3
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

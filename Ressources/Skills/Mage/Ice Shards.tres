@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_17336"]
 script = ExtResource("2_xkn45")
-amount = 2
-hit_time = 5
+amount = 5
+hit_time = 3
 metadata/_custom_type_script = "uid://c1jbtqme5rmll"
 
 [sub_resource type="Resource" id="Resource_eum5u"]
@@ -20,5 +20,5 @@ script = ExtResource("2_82w4p")
 skill_name = "Ice Shards"
 effects = Array[ExtResource("1_77w2x")]([SubResource("Resource_17336")])
 target_pattern = SubResource("Resource_eum5u")
-cast_time = 2
+cast_time = 3
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"
