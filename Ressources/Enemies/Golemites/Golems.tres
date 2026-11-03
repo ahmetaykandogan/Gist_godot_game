@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyGroup" load_steps=4 format=3 uid="uid://dc3hxar88iwp8"]
+[gd_resource type="Resource" script_class="EnemyGroup" load_steps=6 format=3 uid="uid://dc3hxar88iwp8"]
 
 [ext_resource type="Resource" uid="uid://catiskt23hweh" path="res://Ressources/Enemies/Golemites/AttackGolem/AttackGolem.tres" id="1_o4hmx"]
 [ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="1_t415i"]
 [ext_resource type="Script" uid="uid://ckrnxt4quko26" path="res://Scripts/Ressource Scripts/Enemy/EnemyGroup.gd" id="2_o4hmx"]
+[ext_resource type="Resource" uid="uid://c3e301asgp8g6" path="res://Ressources/Enemies/Golemites/Bombardier/Bombardier Golem.tres" id="3_o6nyb"]
+[ext_resource type="Resource" uid="uid://sm3fkn4mhu3r" path="res://Ressources/Enemies/Golemites/Defense Golem/Golem.tres" id="4_dr12x"]
 
 [resource]
 script = ExtResource("2_o4hmx")
 group_name = "Golems"
+enemies = Array[ExtResource("1_t415i")]([ExtResource("3_o6nyb"), ExtResource("1_o4hmx"), ExtResource("4_dr12x")])
 boss = ExtResource("1_o4hmx")
 metadata/_custom_type_script = "uid://ckrnxt4quko26"

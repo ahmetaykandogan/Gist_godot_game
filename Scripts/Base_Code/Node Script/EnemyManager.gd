@@ -101,8 +101,8 @@ func run_enemy_turn() -> void:
 	for enemy in get_children():
 		if is_instance_valid(enemy) and not enemy.dying:
 			enemy.choose_action()
-			await get_tree().create_timer(0.4).timeout
-	await get_tree().create_timer(0.6).timeout           # the player reads all the counters
+			await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.3).timeout           # the player reads all the counters
 	# Phase 2: every charging enemy ticks (and fires at 0)
 	for enemy in get_children():
 		if is_instance_valid(enemy) and not enemy.dying and enemy.pending_skill:
@@ -113,7 +113,7 @@ func tick_wave_counter() -> void:                # call once at the end of every
 	counter -= 1
 	_update_counter_label()
 	if counter <= 0:
-		await get_tree().create_timer(0.6).timeout   # let the player see the 0
+		await get_tree().create_timer(0.4).timeout   # let the player see the 0
 		counter = wave_interval
 		spawn_wave()
 		_update_counter_label()

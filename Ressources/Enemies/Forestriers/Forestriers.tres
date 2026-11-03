@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("2_03ncm")
 group_name = "Forestriers"
-enemies = Array[ExtResource("1_h5o4r")]([ExtResource("2_pxnyh"), ExtResource("3_wper0"), ExtResource("4_eouf2")])
+enemies = Array[ExtResource("1_h5o4r")]([ExtResource("2_pxnyh"), ExtResource("2_pxnyh"), ExtResource("3_wper0"), ExtResource("4_eouf2")])
 metadata/_custom_type_script = "uid://ckrnxt4quko26"
