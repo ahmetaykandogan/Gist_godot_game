@@ -6,12 +6,15 @@ const COLLISION_MASK_SLOT = 2
 @onready var card_manager = $"../CardManager"
 @onready var main_reference = $".."
 @onready var skill_menu = $"../SkillTable"
+@onready var options_menu = get_node_or_null("../OptionsMenu")
 const DRAG_THRESHOLD := 12.0
 var _pressed_unit = null
 var _press_pos := Vector2.ZERO
 var _moving := false
 
 func _input(event):
+	if options_menu and options_menu.is_open():
+		return
 	if event is InputEventMouseMotion:
 		_check_start_move()
 		return

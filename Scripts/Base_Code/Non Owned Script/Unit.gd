@@ -4,6 +4,8 @@ extends Node2D
 
 @onready var health_bar = $HealthBar
 @onready var slot_manager = $"../../SlotManager"
+@onready var passive_manager = get_node_or_null("../../PassiveManager")
+@onready var audio_manager = get_node_or_null("../../AudioManager")
 
 var skills: Array[SkillData] = []
 var health: int
@@ -16,9 +18,10 @@ var turns_left := 0
 var _dealt_damage := false        # did the skill in progress deal damage? (spends Fury)
 var description = ""
 signal statuses_changed           # emitted whenever a status is added, consumed or removed
-@onready var passive_manager = get_node_or_null("../../PassiveManager")
 var auras: Array[Aura] = []       # the auras this unit owns
-
+const HIGHLIGHT_COLOR := Color(1.0, 0.92, 0.1)   # bright yellow
+var _previewed: Array = []        # units highlighted because this unit is hovered
+var _hovered := false
 # =============================== STATUSES ====================================
 func get_stacks(status: String) -> int:
 	return statuses.get(status, 0)
@@ -55,6 +58,8 @@ func deal_damage(target, base: int, reflected: bool = false) -> void:
 		return
 	var hit := Hit.new(self, target, base, reflected)
 	if not reflected:
+		if audio_manager:
+			audio_manager.play_attack()
 		_modify_outgoing(hit)
 		_dealt_damage = true
 	target._receive_hit(hit)
@@ -120,6 +125,8 @@ func die() -> void:
 	if dying:
 		return
 	dying = true
+	_hovered = false
+	clear_target_preview()
 	if passive_manager:
 		passive_manager.unit_left(self)    # its auras stop applying
 	if slot:
@@ -174,12 +181,15 @@ func tick_cast() -> void:              # called at the end of the owner's turn
 		update_cast_box()
 		$"Description Box".visible = false
 		await use_skill(skill)
+	
 
 func update_cast_box() -> void:
 	$CastBox.visible = pending_skill != null
 	if pending_skill:
 		$CastBox/Label.text = str(turns_left)
 	$"Description Box"/Label.text = description
+	if _hovered:
+		show_target_preview()
 
 # ================================== VISUALS ===================================
 func setup_sprite(texture: Texture2D) -> void:
@@ -192,6 +202,8 @@ func setup_sprite(texture: Texture2D) -> void:
 	shape.size = Layout.CARD_SIZE
 	$Area2D/CollisionShape2D.shape = shape
 	health_bar.position.y = Layout.CARD_SIZE.y / 2 + 6
+	$Area2D.mouse_entered.connect(_on_hover_started)
+	$Area2D.mouse_exited.connect(_on_hover_ended)
 
 func damage_text(skill: SkillData) -> String:
 	var parts: Array[String] = []
@@ -209,3 +221,46 @@ func update_damage_box() -> void:
 		return
 	$"Damage Box".visible = true
 	$"Damage Box"/"Damage Label".text = text
+#-----------------------Target howering---------------------
+
+func _on_hover_started() -> void:
+	_hovered = true
+	show_target_preview()
+
+func _on_hover_ended() -> void:
+	_hovered = false
+	clear_target_preview()
+
+func show_target_preview() -> void:
+	clear_target_preview()
+	if not pending_skill or dying:
+		return                             # no skill selected: nothing to show
+	for effect in pending_skill.effects:
+		var pattern = effect.target_pattern if effect.target_pattern else pending_skill.target_pattern
+		if not pattern:
+			continue
+		for target in pattern.get_targets(self, slot_manager):
+			if is_instance_valid(target) and not target.dying and not _previewed.has(target):
+				_previewed.append(target)
+				target.set_highlight(true)
+
+func clear_target_preview() -> void:
+	for target in _previewed:
+		if is_instance_valid(target):
+			target.set_highlight(false)
+	_previewed.clear()
+
+# The counters of the card that light up. Remove or add nodes here to change what is highlighted.
+func _highlight_labels() -> Array:
+	return [$HealthBar/Label, $CastBox/Label]
+
+func set_highlight(on: bool) -> void:
+	for label in _highlight_labels():
+		if on:
+			label.add_theme_color_override("font_color", HIGHLIGHT_COLOR)
+			label.add_theme_color_override("font_outline_color", Color.BLACK)
+			label.add_theme_constant_override("outline_size", 8)
+		else:
+			label.remove_theme_color_override("font_color")
+			label.remove_theme_color_override("font_outline_color")
+			label.remove_theme_constant_override("outline_size")

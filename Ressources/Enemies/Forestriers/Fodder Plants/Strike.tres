@@ -19,5 +19,5 @@ script = ExtResource("2_32cg3")
 skill_name = "Strike"
 effects = Array[ExtResource("1_wbd6j")]([SubResource("Resource_mbtf6")])
 target_pattern = SubResource("Resource_0pdbt")
-cast_time = 4
+cast_time = 3
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

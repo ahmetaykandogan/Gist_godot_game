@@ -7,5 +7,5 @@ script = ExtResource("1_yu47l")
 aura_name = "Childs of the forest"
 affects = 1
 include_self = false
-value = 2
+value = 3
 metadata/_custom_type_script = "uid://b6hgcugncxug2"

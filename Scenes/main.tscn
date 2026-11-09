@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=19 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
 [ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
@@ -15,6 +15,9 @@
 [ext_resource type="Resource" uid="uid://bu805v5gqt4a2" path="res://Ressources/Enemies/Forestriers/Forestriers.tres" id="11_346fj"]
 [ext_resource type="PackedScene" uid="uid://bxoue2xd6d5sl" path="res://Scenes/Skill_Table.tscn" id="14_1p5hy"]
 [ext_resource type="Script" uid="uid://c5cyuhi62jipn" path="res://Scripts/Base_Code/Node Script/Passive_manager.gd" id="14_erwvk"]
+[ext_resource type="Script" uid="uid://bd2o010k7t3uj" path="res://Scenes/audio_manager.gd" id="15_erwvk"]
+[ext_resource type="AudioStream" uid="uid://bjy2dxqae7yva" path="res://Audio/attack_placeholder.wav" id="16_2w5on"]
+[ext_resource type="Script" uid="uid://bxspvxd82rbgd" path="res://Scenes/options_menu.gd" id="18_346fj"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
@@ -62,6 +65,11 @@ script = ExtResource("14_erwvk")
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("5_pbw6q")
 
+[node name="AudioManager" type="Node2D" parent="."]
+script = ExtResource("15_erwvk")
+attack_sound = ExtResource("16_2w5on")
+attack_volume_db = 2.0
+
 [node name="SkillTable" parent="." instance=ExtResource("14_1p5hy")]
 visible = false
 
@@ -70,6 +78,9 @@ offset_left = 921.0
 offset_top = 73.0
 offset_right = 961.0
 offset_bottom = 96.0
+
+[node name="OptionsMenu" type="CanvasLayer" parent="."]
+script = ExtResource("18_346fj")
 
 [connection signal="pressed" from="CombatStartButton/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndTurnButton/Button" to="." method="_on_end_turn_pressed"]
