@@ -22,6 +22,7 @@ var auras: Array[Aura] = []       # the auras this unit owns
 const HIGHLIGHT_COLOR := Color(1.0, 0.92, 0.1)   # bright yellow
 var _previewed: Array = []        # units highlighted because this unit is hovered
 var _hovered := false
+var preview_skill: SkillData
 # =============================== STATUSES ====================================
 func get_stacks(status: String) -> int:
 	return statuses.get(status, 0)
@@ -182,14 +183,20 @@ func tick_cast() -> void:              # called at the end of the owner's turn
 		$"Description Box".visible = false
 		await use_skill(skill)
 	
-
+func _shown_skill() -> SkillData:           # the previewed skill while hovering a button, else the chosen one
+	return preview_skill if preview_skill else pending_skill
+	
 func update_cast_box() -> void:
-	$CastBox.visible = pending_skill != null
-	if pending_skill:
-		$CastBox/Label.text = str(turns_left)
-	$"Description Box"/Label.text = description
-	if _hovered:
-		show_target_preview()
+	var skill := _shown_skill()
+	var previewing := preview_skill != null
+	$CastBox.visible = skill != null
+	$"Description Box".visible = skill != null
+	if skill:
+		$CastBox/Label.text = str(skill.cast_time if previewing else turns_left)
+		$"Description Box"/Label.text = skill.description
+	for box in [$CastBox, $"Description Box", $"Damage Box"]:
+		box.modulate.a = 0.7 if previewing else 1.0     # fainter while it is only a preview
+	_refresh_target_preview()
 
 # ================================== VISUALS ===================================
 func setup_sprite(texture: Texture2D) -> void:
@@ -215,28 +222,53 @@ func damage_text(skill: SkillData) -> String:
 	return " + ".join(parts)
 
 func update_damage_box() -> void:
-	var text := damage_text(pending_skill) if pending_skill else ""
+	var skill := _shown_skill()
+	var text := damage_text(skill) if skill else ""
 	if text == "":
 		$"Damage Box".visible = false
 		return
 	$"Damage Box".visible = true
 	$"Damage Box"/"Damage Label".text = text
+	
+func set_preview_skill(skill: SkillData) -> void:
+	preview_skill = skill
+	update_cast_box()
+	update_damage_box()
+
+func clear_preview_skill() -> void:
+	if preview_skill == null:
+		return
+	preview_skill = null
+	update_cast_box()
+	update_damage_box()
+
+
+
+func _refresh_target_preview() -> void:
+	if (_hovered or preview_skill != null) and not dying:
+		show_target_preview()
+	else:
+		clear_target_preview()
+
+
+
 #-----------------------Target howering---------------------
 
 func _on_hover_started() -> void:
 	_hovered = true
-	show_target_preview()
+	_refresh_target_preview()
 
 func _on_hover_ended() -> void:
 	_hovered = false
-	clear_target_preview()
+	_refresh_target_preview()
 
 func show_target_preview() -> void:
 	clear_target_preview()
-	if not pending_skill or dying:
-		return                             # no skill selected: nothing to show
-	for effect in pending_skill.effects:
-		var pattern = effect.target_pattern if effect.target_pattern else pending_skill.target_pattern
+	var skill := _shown_skill()
+	if not skill or dying:
+		return
+	for effect in skill.effects:
+		var pattern = effect.target_pattern if effect.target_pattern else skill.target_pattern
 		if not pattern:
 			continue
 		for target in pattern.get_targets(self, slot_manager):

@@ -20,5 +20,5 @@ skill_name = "Kick"
 description = "Push 1"
 effects = Array[ExtResource("1_w1thj")]([SubResource("Resource_8rs36")])
 target_pattern = SubResource("Resource_lsarr")
-cast_time = 3
+cast_time = 2
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

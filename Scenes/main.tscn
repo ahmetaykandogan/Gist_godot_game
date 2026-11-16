@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=22 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
 [ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
@@ -17,7 +17,10 @@
 [ext_resource type="Script" uid="uid://c5cyuhi62jipn" path="res://Scripts/Base_Code/Node Script/Passive_manager.gd" id="14_erwvk"]
 [ext_resource type="Script" uid="uid://bd2o010k7t3uj" path="res://Scenes/audio_manager.gd" id="15_erwvk"]
 [ext_resource type="AudioStream" uid="uid://bjy2dxqae7yva" path="res://Audio/attack_placeholder.wav" id="16_2w5on"]
+[ext_resource type="AudioStream" uid="uid://b7ftvoyws4mf2" path="res://Audio/select_placeholder.wav" id="17_fq0cl"]
+[ext_resource type="AudioStream" uid="uid://dwu5ah50c72yd" path="res://Audio/05. Luminice Dance.wav" id="17_sxkr1"]
 [ext_resource type="Script" uid="uid://bxspvxd82rbgd" path="res://Scenes/options_menu.gd" id="18_346fj"]
+[ext_resource type="AudioStream" uid="uid://ciwo34jicso61" path="res://Audio/12. Sunbringer.wav" id="18_fq0cl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
@@ -53,6 +56,7 @@ script = ExtResource("2_pbw6q")
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("11_2w5on")
 groups = Array[ExtResource("9_h1m7h")]([ExtResource("11_346fj"), ExtResource("10_erwvk")])
+boss_wave = 2
 wave_size_min = 4
 wave_size_max = 6
 
@@ -69,6 +73,9 @@ script = ExtResource("5_pbw6q")
 script = ExtResource("15_erwvk")
 attack_sound = ExtResource("16_2w5on")
 attack_volume_db = 2.0
+select_sound = ExtResource("17_fq0cl")
+music_normal = ExtResource("17_sxkr1")
+music_boss = ExtResource("18_fq0cl")
 
 [node name="SkillTable" parent="." instance=ExtResource("14_1p5hy")]
 visible = false

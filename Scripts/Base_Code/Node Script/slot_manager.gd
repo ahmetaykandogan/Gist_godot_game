@@ -92,6 +92,22 @@ func get_slot_in_front_target(slot):
 			else:
 				return character_slots[0][2]
 		return character_slots[slot.row][2]
+func get_last_slot_in_front_target(slot):
+	print("entered")
+	if character_slots[slot.row][3].full == false:
+		print("here")
+		if slot.row == 0:
+			for i in range(5,3):
+				if character_slots[1][i].full:
+					return character_slots[1][i]
+		else:
+			for i in range(5,3):
+				if character_slots[0][i].full:
+					return character_slots[0][i]
+	for i in range(0,2):
+		print(i)
+		if character_slots[slot.row][5-i].full:
+			return character_slots[slot.row][5-i]
 
 	
 func get_first_target_in_row(slot):
