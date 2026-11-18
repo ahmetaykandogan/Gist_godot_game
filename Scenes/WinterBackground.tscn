@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Scenes/winter_background.gd" id="1_bg"]
+[ext_resource type="Script" uid="uid://dl5obl8givdrv" path="res://Scripts/Base_Code/Non Owned Script/winter_background.gd" id="1_bg"]
 
 [node name="WinterBackground" type="CanvasLayer"]
 layer = -100

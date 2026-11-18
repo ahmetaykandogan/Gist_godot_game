@@ -211,6 +211,7 @@ func setup_sprite(texture: Texture2D) -> void:
 	health_bar.position.y = Layout.CARD_SIZE.y / 2 + 6
 	$Area2D.mouse_entered.connect(_on_hover_started)
 	$Area2D.mouse_exited.connect(_on_hover_ended)
+	update_aura_box()
 
 func damage_text(skill: SkillData) -> String:
 	var parts: Array[String] = []
@@ -296,3 +297,32 @@ func set_highlight(on: bool) -> void:
 			label.remove_theme_color_override("font_color")
 			label.remove_theme_color_override("font_outline_color")
 			label.remove_theme_constant_override("outline_size")
+
+
+var _aura_label: Label
+
+# Shows the descriptions of this unit's auras above its card (hidden if it has none).
+func update_aura_box() -> void:
+	var lines: Array[String] = []
+	for aura in auras:
+		if aura.description != "":
+			lines.append(aura.description)
+	if lines.is_empty() or not slot:
+		if _aura_label:
+			_aura_label.visible = false
+		return
+	if not _aura_label:
+		_aura_label = Label.new()
+		_aura_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_aura_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_aura_label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+		_aura_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_aura_label.add_theme_font_size_override("font_size", 12)
+		_aura_label.add_theme_color_override("font_color", Color(0.6, 1.0, 0.6))  # green = passive
+		_aura_label.add_theme_color_override("font_outline_color", Color.BLACK)
+		_aura_label.add_theme_constant_override("outline_size", 6)
+		_aura_label.size = Vector2(Layout.CARD_SIZE.x, 48)
+		_aura_label.position = Vector2(-Layout.CARD_SIZE.x / 2, -Layout.CARD_SIZE.y / 2 - 52)
+		add_child(_aura_label)
+	_aura_label.text = "\n".join(lines)
+	_aura_label.visible = true

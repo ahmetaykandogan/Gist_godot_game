@@ -28,6 +28,7 @@ func unit_entered(unit) -> void:
 			ally_auras.append(ActiveAura.new(unit, aura))
 		else:
 			enemy_auras.append(ActiveAura.new(unit, aura))
+	unit.update_aura_box()
 	_changed()
 
 # Call when a unit dies or is taken off the battlefield.

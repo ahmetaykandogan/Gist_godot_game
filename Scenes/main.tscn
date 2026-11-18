@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=24 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
 [ext_resource type="PackedScene" path="res://Scenes/WinterBackground.tscn" id="2_fevyy"]
@@ -16,13 +16,13 @@
 [ext_resource type="Resource" uid="uid://bu805v5gqt4a2" path="res://Ressources/Enemies/Forestriers/Forestriers.tres" id="11_346fj"]
 [ext_resource type="PackedScene" uid="uid://bxoue2xd6d5sl" path="res://Scenes/Skill_Table.tscn" id="14_1p5hy"]
 [ext_resource type="Script" uid="uid://c5cyuhi62jipn" path="res://Scripts/Base_Code/Node Script/Passive_manager.gd" id="14_erwvk"]
-[ext_resource type="Script" uid="uid://bd2o010k7t3uj" path="res://Scenes/audio_manager.gd" id="15_erwvk"]
+[ext_resource type="Script" uid="uid://bd2o010k7t3uj" path="res://Scripts/Base_Code/Non Owned Script/audio_manager.gd" id="15_erwvk"]
 [ext_resource type="AudioStream" uid="uid://bjy2dxqae7yva" path="res://Audio/attack_placeholder.wav" id="16_2w5on"]
 [ext_resource type="AudioStream" uid="uid://b7ftvoyws4mf2" path="res://Audio/select_placeholder.wav" id="17_fq0cl"]
 [ext_resource type="AudioStream" uid="uid://dwu5ah50c72yd" path="res://Audio/05. Luminice Dance.wav" id="17_sxkr1"]
-[ext_resource type="Script" uid="uid://bxspvxd82rbgd" path="res://Scenes/options_menu.gd" id="18_346fj"]
+[ext_resource type="Script" uid="uid://bxspvxd82rbgd" path="res://Scripts/Base_Code/Non Owned Script/options_menu.gd" id="18_346fj"]
 [ext_resource type="AudioStream" uid="uid://ciwo34jicso61" path="res://Audio/12. Sunbringer.wav" id="18_fq0cl"]
-[ext_resource type="Script" uid="uid://c2wogq6bo734h" path="res://Scenes/restart.gd" id="22_hwpts"]
+[ext_resource type="Script" uid="uid://c2wogq6bo734h" path="res://Scripts/Base_Code/Non Owned Script/restart.gd" id="22_hwpts"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
@@ -61,7 +61,8 @@ script = ExtResource("2_pbw6q")
 script = ExtResource("11_2w5on")
 groups = Array[ExtResource("9_h1m7h")]([ExtResource("11_346fj"), ExtResource("10_erwvk")])
 boss_wave = 1
-wave_size_max = 1
+wave_size_min = 5
+wave_size_max = 6
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("4_jw32o")
@@ -116,16 +117,15 @@ vertical_alignment = 1
 
 [node name="Restart" type="Button" parent="VictoryScreen"]
 custom_minimum_size = Vector2(300, 80)
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 80.0
 grow_horizontal = 2
-grow_vertical = 0
+text = "Restart
+"
 script = ExtResource("22_hwpts")
 
 [connection signal="pressed" from="CombatStartButton/Button" to="." method="_on_button_pressed"]
