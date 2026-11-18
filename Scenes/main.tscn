@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=23 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
 [ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dwu5ah50c72yd" path="res://Audio/05. Luminice Dance.wav" id="17_sxkr1"]
 [ext_resource type="Script" uid="uid://bxspvxd82rbgd" path="res://Scenes/options_menu.gd" id="18_346fj"]
 [ext_resource type="AudioStream" uid="uid://ciwo34jicso61" path="res://Audio/12. Sunbringer.wav" id="18_fq0cl"]
+[ext_resource type="Script" uid="uid://c2wogq6bo734h" path="res://Scenes/restart.gd" id="22_hwpts"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
@@ -56,9 +57,8 @@ script = ExtResource("2_pbw6q")
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("11_2w5on")
 groups = Array[ExtResource("9_h1m7h")]([ExtResource("11_346fj"), ExtResource("10_erwvk")])
-boss_wave = 2
-wave_size_min = 4
-wave_size_max = 6
+boss_wave = 1
+wave_size_max = 1
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("4_jw32o")
@@ -88,6 +88,42 @@ offset_bottom = 96.0
 
 [node name="OptionsMenu" type="CanvasLayer" parent="."]
 script = ExtResource("18_346fj")
+
+[node name="VictoryScreen" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="VictoryScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2231029, 0.2231029, 0.22310287, 1)
+
+[node name="Victory!" type="Label" parent="VictoryScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="VictoryScreen"]
+custom_minimum_size = Vector2(300, 80)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("22_hwpts")
 
 [connection signal="pressed" from="CombatStartButton/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndTurnButton/Button" to="." method="_on_end_turn_pressed"]

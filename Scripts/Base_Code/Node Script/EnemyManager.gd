@@ -31,9 +31,12 @@ func start_encounter() -> void:
 	spawn_wave()                                 # first wave, visible during preparation
 	_update_counter_label()
 
+var boss_wave_spawned := false
 
 # ================================== WAVES =====================================
 func spawn_wave() -> void:
+	if boss_wave_spawned:
+		return
 	wave_number += 1
 	var free := _free_slot_count()
 	var batch: Array[EnemyData] = []
@@ -41,6 +44,7 @@ func spawn_wave() -> void:
 		batch.append(active_group.boss)          # the boss always gets a place: escorts are cut to fit
 		_boss_pending = false
 		free -= 1
+		boss_wave_spawned = true
 	elif _boss_due():
 		_boss_pending = true                     # no room yet: it arrives as soon as there is some
 	if batch.is_empty() or boss_with_escorts:
@@ -123,3 +127,12 @@ func _update_counter_label() -> void:
 	if active_group and active_group.boss and (wave_number + 1 == boss_wave or _boss_pending):
 		text += "  (BOSS)"
 	counter_label.text = text
+	
+func all_enemies_dead() -> bool:
+	for row in range(slot_manager.Row_depth):
+		if not slot_manager.units_in_lane(row, false).is_empty():
+			return false
+	return true
+
+func is_cleared() -> bool:
+	return boss_wave_spawned and all_enemies_dead()

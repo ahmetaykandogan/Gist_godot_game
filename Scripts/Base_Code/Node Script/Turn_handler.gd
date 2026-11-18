@@ -3,7 +3,8 @@ extends Node2D
 enum GamePhase {
 	PLAYER_PREPARATION,
 	PLAYER_TURN,
-	ENEMY_TURN
+	ENEMY_TURN,
+	VICTORY
 }
 
 var current_phase = GamePhase.PLAYER_PREPARATION
@@ -38,4 +39,18 @@ func end_player_turn():
 			await get_tree().create_timer(0.1).timeout
 	await $"EnemyManager".run_enemy_turn()
 	$"EnemyManager".tick_wave_counter()
+	if check_victory():
+		return
 	start_player_turn()
+
+func check_victory() -> bool:
+	if current_phase == GamePhase.VICTORY:
+		return true
+	if $"EnemyManager".is_cleared():
+		print("entered")
+		current_phase = GamePhase.VICTORY
+		$"EndTurnButton".hide()
+		$"SkillTable".hide()
+		$"VictoryScreen".show()
+		return true
+	return false

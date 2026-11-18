@@ -189,3 +189,42 @@ func move_unit(from_slot, to_slot):
 	to_slot.full = true
 	unit.slot = to_slot
 	create_tween().tween_property(unit, "global_position", to_slot.global_position, 0.2)
+# ============================ PUSHING UNITS (PushEffect) ======================
+# Moves the unit one position toward the front (-1) or the back (+1) of its lane.
+# It swaps places with the unit that is there (unless that unit is in `exclude`). Returns false if it can not move.
+func shift_in_lane(unit, delta: int, exclude: Array = []) -> bool:
+	var slot = unit.slot
+	if not slot:
+		return false
+	var cols = side_columns(is_ally_slot(slot))              # front -> back
+	var index: int = cols.find(slot.column) + delta
+	if index < 0 or index >= cols.size():
+		return false                                         # already at the end of the lane
+	var other = get_slot(slot.row, cols[index])
+	if not other.character or other.character.dying or other.character in exclude:
+		return false                                         # nobody there to swap with
+	swap_units(slot, other)
+	return true
+
+# Moves the unit one lane up (-1) or down (+1), keeping its position in the lane.
+# It swaps with the unit there, or joins the back of the other lane if that spot is empty.
+func shift_to_lane(unit, delta: int, exclude: Array = []) -> bool:
+	var slot = unit.slot
+	if not slot:
+		return false
+	var ally := is_ally_slot(slot)
+	var other = get_slot(slot.row + delta, slot.column)
+	if other == null:
+		return false                                         # there is no lane there
+	if other.character and not other.character.dying:
+		if other.character in exclude:
+			return false                                     # it is being pushed too: they do not trade places
+		swap_units(slot, other)
+		return true
+	var dest = get_frontmost_free_slot(other.row, ally)
+	if not dest:
+		return false
+	var old_row = slot.row
+	move_unit(slot, dest)
+	compact_lane(old_row, ally)                              # close the gap left behind
+	return true
