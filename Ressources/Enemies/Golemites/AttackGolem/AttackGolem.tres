@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_gl4g5"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_di2fv"]
 [ext_resource type="Resource" uid="uid://bkgwc0jpokdbe" path="res://Ressources/Enemies/Golemites/AttackGolem/Rock bash.tres" id="4_jvtwk"]
-[ext_resource type="Texture2D" uid="uid://cym76unqe7wc6" path="res://Arts/Actual art/Attack golem (2).jpg" id="5_gl4g5"]
+[ext_resource type="Texture2D" uid="uid://blwc3rc0shflm" path="res://Arts/Actual art/Attack_Golem.png" id="6_di2fv"]
 
 [sub_resource type="Resource" id="Resource_24unw"]
 script = ExtResource("1_my1pa")
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
 [resource]
 script = ExtResource("2_gl4g5")
 enemy_name = "Rock Bash"
-texture = ExtResource("5_gl4g5")
+texture = ExtResource("6_di2fv")
 max_health = 20
 skills = Array[ExtResource("3_di2fv")]([ExtResource("4_jvtwk")])
 priority = 2

@@ -31,9 +31,10 @@ const FAN_Y: Array[float] = [400.0, 420.0, 395.0]
 
 # The art shown on the cards. Replace with your own in the Inspector (card_art) if you like.
 const DEFAULT_ART: Array[String] = [
-	"res://Arts/Actual art/Golems (1).jpg",
-	"res://Arts/Actual art/Seamstress.jpg",
-	"res://Arts/Actual art/Mage.jpg",
+	"res://Arts/Actual art/Heroine.png",
+	"res://Arts/Actual art/Strategist.png",
+	"res://Arts/Actual art/Attack_Golem.png",
+	"res://Arts/Actual art/Bombardier_Golem.png"
 ]
 
 @export var game_title := "Card Game"
