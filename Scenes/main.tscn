@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=27 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://b8cckldsvu0kk" path="res://Scenes/WinterBackground.tscn" id="2_fevyy"]
@@ -23,6 +23,9 @@
 [ext_resource type="Script" uid="uid://bxspvxd82rbgd" path="res://Scripts/Base_Code/Non Owned Script/options_menu.gd" id="18_346fj"]
 [ext_resource type="AudioStream" uid="uid://ciwo34jicso61" path="res://Audio/12. Sunbringer.wav" id="18_fq0cl"]
 [ext_resource type="Script" uid="uid://c2wogq6bo734h" path="res://Scripts/Base_Code/Non Owned Script/restart.gd" id="22_hwpts"]
+[ext_resource type="AudioStream" uid="uid://cm1um1uvgmjwj" path="res://Audio/17.mp3" id="23_heal"]
+[ext_resource type="AudioStream" uid="uid://m5t8nf3p76vw" path="res://Audio/shield.wav" id="24_shield"]
+[ext_resource type="AudioStream" uid="uid://c5myuxs8cbsk8" path="res://Audio/magic.wav" id="25_magic"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
@@ -78,6 +81,9 @@ script = ExtResource("15_erwvk")
 attack_sound = ExtResource("16_2w5on")
 attack_volume_db = 2.0
 select_sound = ExtResource("17_fq0cl")
+heal_sound = ExtResource("23_heal")
+shield_sound = ExtResource("24_shield")
+status_sound = ExtResource("25_magic")
 music_normal = ExtResource("17_sxkr1")
 music_boss = ExtResource("18_fq0cl")
 

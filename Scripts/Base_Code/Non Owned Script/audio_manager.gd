@@ -9,6 +9,15 @@ extends Node
 @export var select_sound: AudioStream            # played when the player selects a skill
 @export_range(-40.0, 6.0) var select_volume_db: float = 0.0
 
+@export var heal_sound: AudioStream              # played when a unit is healed
+@export_range(-40.0, 6.0) var heal_volume_db: float = 0.0
+
+@export var shield_sound: AudioStream            # played when a unit gains Shield
+@export_range(-40.0, 6.0) var shield_volume_db: float = 0.0
+
+@export var status_sound: AudioStream            # played when a unit gains any other status (Curse, Fury, Spike...)
+@export_range(-40.0, 6.0) var status_volume_db: float = 0.0
+
 @export var music_normal: AudioStream            # plays during the encounter
 @export var music_boss: AudioStream              # takes over when the boss enters
 @export_range(-40.0, 6.0) var music_volume_db: float = -8.0
@@ -19,7 +28,13 @@ var select_plays := 0                            # selection sounds started
 var current_music: AudioStream
 var _attack_player: AudioStreamPlayer
 var _select_player: AudioStreamPlayer
+var _heal_player: AudioStreamPlayer
+var _shield_player: AudioStreamPlayer
+var _status_player: AudioStreamPlayer
 var _last_attack_frame := -1
+var _last_heal_frame := -1
+var _last_shield_frame := -1
+var _last_status_frame := -1
 var _music_players: Array[AudioStreamPlayer] = []
 var _music_active := 0
 var _ready_done := false
@@ -37,6 +52,9 @@ func _ready() -> void:
 	_select_player.volume_db = select_volume_db
 	_select_player.max_polyphony = 2
 	add_child(_select_player)
+	_heal_player = _make_player(heal_sound, heal_volume_db)
+	_shield_player = _make_player(shield_sound, shield_volume_db)
+	_status_player = _make_player(status_sound, status_volume_db)
 	for i in 2:                                  # two players, to crossfade between tracks
 		var p := AudioStreamPlayer.new()
 		p.volume_db = -80.0
@@ -67,6 +85,44 @@ func play_select() -> void:
 		return
 	select_plays += 1
 	_select_player.play()
+
+# Played when a unit is healed. Healing several units on the same frame counts as ONE sound.
+func play_heal() -> void:
+	if heal_sound == null or not _ready_done:
+		return
+	var frame := Engine.get_process_frames()
+	if frame == _last_heal_frame:
+		return
+	_last_heal_frame = frame
+	_heal_player.play()
+
+# Played when a unit gains Shield (a barrage on several units is ONE sound).
+func play_shield() -> void:
+	if shield_sound == null or not _ready_done:
+		return
+	var frame := Engine.get_process_frames()
+	if frame == _last_shield_frame:
+		return
+	_last_shield_frame = frame
+	_shield_player.play()
+
+# Played when a unit gains any other status (Curse, Fury, Spike...).
+func play_status() -> void:
+	if status_sound == null or not _ready_done:
+		return
+	var frame := Engine.get_process_frames()
+	if frame == _last_status_frame:
+		return
+	_last_status_frame = frame
+	_status_player.play()
+
+func _make_player(stream: AudioStream, volume_db: float) -> AudioStreamPlayer:
+	var p := AudioStreamPlayer.new()
+	p.stream = stream
+	p.volume_db = volume_db
+	p.max_polyphony = 2
+	add_child(p)
+	return p
 
 
 # =================================== MUSIC ====================================

@@ -30,6 +30,11 @@ func get_stacks(status: String) -> int:
 func add_status(status: String, stacks: int = 1) -> void:
 	statuses[status] = get_stacks(status) + stacks
 	_notify_statuses()
+	if audio_manager:
+		if status == "Shield":
+			audio_manager.play_shield()
+		else:
+			audio_manager.play_status()
 
 func consume_status(status: String, stacks: int = 1) -> bool:   # true if the status was active
 	var left := get_stacks(status) - stacks
@@ -117,6 +122,8 @@ func lose_health(amount: int) -> void:
 func heal(amount: int) -> void:
 	health = mini(health + amount, max_health)
 	update_health_bar()
+	if audio_manager:
+		audio_manager.play_heal()
 
 func update_health_bar() -> void:
 	health_bar.value = health
