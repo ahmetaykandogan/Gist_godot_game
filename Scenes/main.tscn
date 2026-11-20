@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://dydoglgid6c03"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
-[ext_resource type="PackedScene" path="res://Scenes/WinterBackground.tscn" id="2_fevyy"]
+[ext_resource type="PackedScene" uid="uid://b8cckldsvu0kk" path="res://Scenes/WinterBackground.tscn" id="2_fevyy"]
 [ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
 [ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="3_erwvk"]
 [ext_resource type="Script" uid="uid://drxfhy8m6q0la" path="res://Scripts/Base_Code/Node Script/Character_Hand.gd" id="3_v1gob"]
