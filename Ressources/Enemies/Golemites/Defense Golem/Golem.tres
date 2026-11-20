@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="2_kbc6d"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_kbc6d"]
 [ext_resource type="Resource" uid="uid://cpxq37508of2w" path="res://Ressources/Enemies/Golemites/Defense Golem/Shield.tres" id="4_cwrjg"]
-[ext_resource type="Texture2D" uid="uid://b5g1ksn0fbycn" path="res://Arts/Actual art/Golems (1).jpg" id="5_4eupy"]
+[ext_resource type="Texture2D" uid="uid://cv2y24e1ndqm1" path="res://Arts/Actual art/Defense_Golem.png" id="6_cogml"]
 
 [sub_resource type="Resource" id="Resource_i68w5"]
 script = ExtResource("1_reb7u")
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
 [resource]
 script = ExtResource("2_cogml")
 enemy_name = "Defense Golem"
-texture = ExtResource("5_4eupy")
+texture = ExtResource("6_cogml")
 max_health = 40
 skills = Array[ExtResource("3_kbc6d")]([ExtResource("4_cwrjg")])
 priority = 3
