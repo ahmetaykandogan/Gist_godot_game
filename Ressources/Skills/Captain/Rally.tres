@@ -13,13 +13,13 @@ metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
 [sub_resource type="Resource" id="Resource_t3ovr"]
 script = ExtResource("2_pvkew")
 status = "Fury"
-stacks = 5
+stacks = 2
 target_pattern = SubResource("Resource_h0i2i")
 metadata/_custom_type_script = "uid://dksnnvbean1m3"
 
 [sub_resource type="Resource" id="Resource_t4r53"]
 script = ExtResource("4_yrx0k")
-amount = 5
+amount = 2
 metadata/_custom_type_script = "uid://bwhtohxbl8pqj"
 
 [sub_resource type="Resource" id="Resource_n2evu"]
@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
 [resource]
 script = ExtResource("2_0fmvx")
 skill_name = "Rally the troops"
-description = "Fury 5. Heal 5. Barrage"
+description = "Fury 2. Heal 2. Barrage"
 effects = Array[ExtResource("1_vblvl")]([SubResource("Resource_t3ovr"), SubResource("Resource_t4r53")])
 target_pattern = SubResource("Resource_n2evu")
 cast_time = 3

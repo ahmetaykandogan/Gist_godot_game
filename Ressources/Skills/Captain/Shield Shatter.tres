@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://d00wnyrddotq7"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_575br"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_7sbnm"]
+[ext_resource type="Script" uid="uid://5up7tecsrw0v" path="res://Scripts/Ressource Scripts/Effects/ShieldBreak.gd" id="2_612hm"]
+[ext_resource type="Script" uid="uid://b3is5pfp4h7eb" path="res://Scripts/Ressource Scripts/Targeting/FrontTargeting.gd" id="4_ww40u"]
+
+[sub_resource type="Resource" id="Resource_x3v8m"]
+script = ExtResource("2_612hm")
+metadata/_custom_type_script = "uid://5up7tecsrw0v"
+
+[sub_resource type="Resource" id="Resource_8cgol"]
+script = ExtResource("4_ww40u")
+metadata/_custom_type_script = "uid://b3is5pfp4h7eb"
+
+[resource]
+script = ExtResource("2_7sbnm")
+skill_name = "Shield Shatter"
+description = "Reset enemy shield. Front"
+effects = Array[ExtResource("1_575br")]([SubResource("Resource_x3v8m")])
+target_pattern = SubResource("Resource_8cgol")
+cast_time = 2
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

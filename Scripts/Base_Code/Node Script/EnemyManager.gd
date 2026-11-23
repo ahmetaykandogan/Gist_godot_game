@@ -104,6 +104,7 @@ func run_enemy_turn() -> void:
 	# Phase 1: every enemy chooses an action
 	for enemy in get_children():
 		if is_instance_valid(enemy) and not enemy.dying:
+			enemy.tick_statuses()
 			enemy.choose_action()
 			await get_tree().create_timer(0.3).timeout
 	await get_tree().create_timer(0.3).timeout           # the player reads all the counters

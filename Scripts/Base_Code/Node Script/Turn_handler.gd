@@ -35,6 +35,7 @@ func end_player_turn():
 	$"SkillTable".hide()
 	for c in get_tree().get_nodes_in_group("characters"):
 		if is_instance_valid(c) and not c.dying and c.pending_skill:
+			await c.tick_statuses()
 			await c.tick_cast()
 			await get_tree().create_timer(0.1).timeout
 	await $"EnemyManager".run_enemy_turn()

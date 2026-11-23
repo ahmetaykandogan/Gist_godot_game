@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://xk0yvnnxgbny"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_hdqwt"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_mbhn4"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_xyl77"]
+[ext_resource type="Script" uid="uid://bq3vaac3lms2k" path="res://Scripts/Ressource Scripts/Targeting/BarrageTargeting.gd" id="4_csv4d"]
+
+[sub_resource type="Resource" id="Resource_8os1l"]
+script = ExtResource("2_mbhn4")
+status = "Corrosion"
+stacks = 3
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_aux0f"]
+script = ExtResource("4_csv4d")
+metadata/_custom_type_script = "uid://bq3vaac3lms2k"
+
+[resource]
+script = ExtResource("2_xyl77")
+skill_name = "Corrosive Death"
+description = "Corrosion 3. Barrage"
+effects = Array[ExtResource("1_hdqwt")]([SubResource("Resource_8os1l")])
+target_pattern = SubResource("Resource_aux0f")
+cast_time = 5
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

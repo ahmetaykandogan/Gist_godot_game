@@ -5,8 +5,7 @@
 [resource]
 script = ExtResource("1_yu47l")
 aura_name = "Childs of the forest"
-description = "Add 2 damage to every ally"
+description = "Add 1 damage to every ally"
 affects = 1
 include_self = false
-value = 2
 metadata/_custom_type_script = "uid://b6hgcugncxug2"

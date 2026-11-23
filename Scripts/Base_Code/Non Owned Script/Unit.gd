@@ -87,6 +87,7 @@ func _modify_by_aura(hit: Hit) -> void:
 		passive_manager.modify(hit)
 
 func _modify_incoming(hit: Hit) -> void:
+	hit.amount += get_stacks("Corrosion")
 	# Curse: the next hit taken is doubled (one stack per hit)
 	if consume_status("Curse"):
 		hit.amount *= 2
@@ -333,3 +334,6 @@ func update_aura_box() -> void:
 		add_child(_aura_label)
 	_aura_label.text = "\n".join(lines)
 	_aura_label.visible = true
+
+func tick_statuses() -> void:
+	consume_status("Corrosion")

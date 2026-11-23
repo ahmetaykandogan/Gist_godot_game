@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=9 format=3 uid="uid://c0ysqv7fls4it"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_qfuil"]
+[ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_ve7vp"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_ve7vp"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_6kk3o"]
+[ext_resource type="Resource" uid="uid://dv6l2qctil03f" path="res://Ressources/Enemies/Voidlings/Reaper/Certain Death.tres" id="4_63rjl"]
+[ext_resource type="Texture2D" uid="uid://cxvui43bmopeb" path="res://Arts/PlaceHolder/Reaper.jpg" id="5_mdj8u"]
+[ext_resource type="Resource" uid="uid://xk0yvnnxgbny" path="res://Ressources/Enemies/Voidlings/Reaper/Corrosive Death.tres" id="6_6kk3o"]
+
+[sub_resource type="Resource" id="Resource_6kk3o"]
+script = ExtResource("1_ve7vp")
+metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
+
+[resource]
+script = ExtResource("2_ve7vp")
+enemy_name = "Reaper"
+texture = ExtResource("5_mdj8u")
+max_health = 4
+skills = Array[ExtResource("3_6kk3o")]([ExtResource("4_63rjl"), ExtResource("6_6kk3o")])
+ai = SubResource("Resource_6kk3o")
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

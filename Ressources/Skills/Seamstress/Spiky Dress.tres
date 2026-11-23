@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_5jqi2"]
 script = ExtResource("2_yf68w")
 status = "Spike"
-stacks = 5
+stacks = 2
 metadata/_custom_type_script = "uid://dksnnvbean1m3"
 
 [sub_resource type="Resource" id="Resource_5xx3s"]
@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://c40gvq6frpgau"
 [resource]
 script = ExtResource("3_5xx3s")
 skill_name = "Spiky Dress"
-description = "Gain 5 spike"
+description = "Gain 2 spike"
 effects = Array[ExtResource("1_mbpup")]([SubResource("Resource_5jqi2")])
 target_pattern = SubResource("Resource_5xx3s")
 cast_time = 3

@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://dx6wocctvkkg0"
 [resource]
 script = ExtResource("3_mjus8")
 skill_name = "Rock bash"
-description = "Gain 10 shield. Deal damage equal to shield"
+description = "Gain 5 shield. Deal damage equal to shield"
 effects = Array[ExtResource("1_chm25")]([SubResource("Resource_vjmdp"), SubResource("Resource_vjg2u")])
 target_pattern = SubResource("Resource_r2uc5")
 cast_time = 3

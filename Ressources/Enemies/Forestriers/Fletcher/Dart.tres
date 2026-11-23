@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://c5g1l61c3hgoh"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_xwc8q"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_8lxo7"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_sjs3b"]
+[ext_resource type="Script" uid="uid://cb6xb0nypo2sw" path="res://Scripts/Ressource Scripts/Targeting/FarShotTargeting.gd" id="4_w6r3q"]
+
+[sub_resource type="Resource" id="Resource_2jnkf"]
+script = ExtResource("2_8lxo7")
+amount = 3
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_1wii7"]
+script = ExtResource("4_w6r3q")
+metadata/_custom_type_script = "uid://cb6xb0nypo2sw"
+
+[resource]
+script = ExtResource("2_sjs3b")
+skill_name = "Dart"
+effects = Array[ExtResource("1_xwc8q")]([SubResource("Resource_2jnkf")])
+target_pattern = SubResource("Resource_1wii7")
+cast_time = 3
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

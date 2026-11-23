@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://dv6l2qctil03f"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_xh7hu"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_akrij"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_nqjrh"]
+[ext_resource type="Script" uid="uid://bq3vaac3lms2k" path="res://Scripts/Ressource Scripts/Targeting/BarrageTargeting.gd" id="4_nqjrh"]
+
+[sub_resource type="Resource" id="Resource_dtfsg"]
+script = ExtResource("2_nqjrh")
+amount = 999
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_cyrai"]
+script = ExtResource("4_nqjrh")
+metadata/_custom_type_script = "uid://bq3vaac3lms2k"
+
+[resource]
+script = ExtResource("2_akrij")
+skill_name = "Certain Death"
+description = "Barrage"
+effects = Array[ExtResource("1_xh7hu")]([SubResource("Resource_dtfsg")])
+target_pattern = SubResource("Resource_cyrai")
+cast_time = 8
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

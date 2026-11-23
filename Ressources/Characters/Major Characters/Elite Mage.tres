@@ -13,6 +13,6 @@
 script = ExtResource("1_8ppxv")
 character_name = "Elite Mage"
 texture = ExtResource("8_42h1x")
-max_health = 30
+max_health = 5
 skills = Array[ExtResource("2_yx2h4")]([ExtResource("3_gufm2"), ExtResource("4_a1w4q"), ExtResource("5_a1w4q"), ExtResource("6_o4ytg")])
 metadata/_custom_type_script = "uid://bsmvohvkwavui"

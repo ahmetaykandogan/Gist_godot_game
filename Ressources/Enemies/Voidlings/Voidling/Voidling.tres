@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://bf6qvj6m0prif"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_3srhh"]
+[ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_5qisv"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_ukas4"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_rigdr"]
+[ext_resource type="Resource" uid="uid://hpgcb11xtdi4" path="res://Ressources/Enemies/Voidlings/Voidling/Void Slash.tres" id="4_rigdr"]
+[ext_resource type="Texture2D" uid="uid://dg0aspcial274" path="res://Arts/PlaceHolder/Voidling.jpg" id="5_5qisv"]
+
+[sub_resource type="Resource" id="Resource_2s3h0"]
+script = ExtResource("1_5qisv")
+metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
+
+[resource]
+script = ExtResource("2_ukas4")
+enemy_name = "Voidling"
+texture = ExtResource("5_5qisv")
+max_health = 4
+skills = Array[ExtResource("3_rigdr")]([ExtResource("4_rigdr")])
+priority = 3
+ai = SubResource("Resource_2s3h0")
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

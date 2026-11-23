@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyGroup" load_steps=7 format=3 uid="uid://bo83yp3ajyps4"]
+
+[ext_resource type="Resource" uid="uid://x881o3e61qe7" path="res://Ressources/Enemies/Voidlings/Void Boss/Void Boss.tres" id="1_qrkxn"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_bh315"]
+[ext_resource type="Resource" uid="uid://bhjg0x7j0v5kp" path="res://Ressources/Enemies/Voidlings/Screamer/Screamer.tres" id="3_qvk7y"]
+[ext_resource type="Resource" uid="uid://c0ysqv7fls4it" path="res://Ressources/Enemies/Voidlings/Reaper/Reaper.tres" id="4_koo5u"]
+[ext_resource type="Resource" uid="uid://bf6qvj6m0prif" path="res://Ressources/Enemies/Voidlings/Voidling/Voidling.tres" id="5_beb3h"]
+[ext_resource type="Script" uid="uid://ckrnxt4quko26" path="res://Scripts/Ressource Scripts/Enemy/EnemyGroup.gd" id="6_77cdy"]
+
+[resource]
+script = ExtResource("6_77cdy")
+group_name = "Voidlings"
+enemies = Array[ExtResource("2_bh315")]([ExtResource("3_qvk7y"), ExtResource("4_koo5u"), ExtResource("5_beb3h")])
+boss = ExtResource("1_qrkxn")
+metadata/_custom_type_script = "uid://ckrnxt4quko26"

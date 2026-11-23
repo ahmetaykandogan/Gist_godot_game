@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="SkillData" load_steps=9 format=3 uid="uid://djm0uxup5r4nl"]
+[gd_resource type="Resource" script_class="SkillData" load_steps=13 format=3 uid="uid://djm0uxup5r4nl"]
 
 [ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_6tsu7"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_5r5yn"]
 [ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_mgfnp"]
 [ext_resource type="Script" uid="uid://cbhbqb0mv24bl" path="res://Scripts/Ressource Scripts/Targeting/SelfbarrageTarget.gd" id="3_dcox5"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="4_a5wgo"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="5_cklna"]
 
 [sub_resource type="Resource" id="Resource_a5wgo"]
 script = ExtResource("3_dcox5")
@@ -12,15 +14,25 @@ metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
 [sub_resource type="Resource" id="Resource_cklna"]
 script = ExtResource("2_mgfnp")
 status = "Spike"
-stacks = 10
+stacks = 2
 target_pattern = SubResource("Resource_a5wgo")
 metadata/_custom_type_script = "uid://dksnnvbean1m3"
 
 [sub_resource type="Resource" id="Resource_23xdf"]
 script = ExtResource("2_mgfnp")
 status = "Shield"
-stacks = 10
+stacks = 3
 metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_v1sll"]
+script = ExtResource("5_cklna")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[sub_resource type="Resource" id="Resource_m1ran"]
+script = ExtResource("4_a5wgo")
+amount = 3
+target_pattern = SubResource("Resource_v1sll")
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
 
 [sub_resource type="Resource" id="Resource_e3oet"]
 script = ExtResource("3_dcox5")
@@ -29,8 +41,8 @@ metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
 [resource]
 script = ExtResource("2_5r5yn")
 skill_name = "Spike Shield"
-description = "Give 10 Spike and 10 SHield. Barrage"
-effects = Array[ExtResource("1_6tsu7")]([SubResource("Resource_cklna"), SubResource("Resource_23xdf")])
+description = "Give 2 Spike and 3 SHield. Barrage"
+effects = Array[ExtResource("1_6tsu7")]([SubResource("Resource_cklna"), SubResource("Resource_23xdf"), SubResource("Resource_m1ran")])
 target_pattern = SubResource("Resource_e3oet")
 cast_time = 6
 metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://mf3y2o2dukgk"]
+
+[ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_ojgdm"]
+[ext_resource type="Script" uid="uid://dc3lqh5gb7kis" path="res://Scripts/Ressource Scripts/EnemyAI/RandomSkillSelect.gd" id="1_ynrsk"]
+[ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_s0chm"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_ynrsk"]
+[ext_resource type="Resource" uid="uid://c5g1l61c3hgoh" path="res://Ressources/Enemies/Forestriers/Fletcher/Dart.tres" id="5_gbps5"]
+
+[sub_resource type="Resource" id="Resource_rseow"]
+script = ExtResource("1_ynrsk")
+metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
+
+[resource]
+script = ExtResource("2_s0chm")
+enemy_name = "Fletcher"
+max_health = 3
+skills = Array[ExtResource("3_ynrsk")]([ExtResource("5_gbps5")])
+priority = 2
+ai = SubResource("Resource_rseow")
+metadata/_custom_type_script = "uid://c4ya4pviyqyh3"

@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://cbhbqb0mv24bl"
 [resource]
 script = ExtResource("2_c1p65")
 skill_name = "Forest Chant"
-description = "Heal 5. Barrage"
+description = "Heal 3. Barrage"
 effects = Array[ExtResource("1_ylbqb")]([SubResource("Resource_csjw4")])
 target_pattern = SubResource("Resource_0mwq0")
 cast_time = 3

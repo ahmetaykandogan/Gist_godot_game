@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://dtami5nig2ruf"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_kww8y"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_0r76x"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="2_ka0lg"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="4_ka0lg"]
+
+[sub_resource type="Resource" id="Resource_yqjxp"]
+script = ExtResource("2_ka0lg")
+amount = 4
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_icpvb"]
+script = ExtResource("4_ka0lg")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_0r76x")
+skill_name = "Slash"
+effects = Array[ExtResource("1_kww8y")]([SubResource("Resource_yqjxp")])
+target_pattern = SubResource("Resource_icpvb")
+cast_time = 2
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

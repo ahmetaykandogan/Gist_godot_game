@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://dydoglgid6c03"]
+[gd_scene load_steps=26 format=3 uid="uid://7wl7s82274rp"]
 
 [ext_resource type="Script" uid="uid://lfp23ueagik2" path="res://Scripts/Base_Code/Node Script/Turn_handler.gd" id="1_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://b8cckldsvu0kk" path="res://Scenes/WinterBackground.tscn" id="2_fevyy"]
+[ext_resource type="PackedScene" path="res://Scenes/WinterBackground.tscn" id="2_fevyy"]
 [ext_resource type="Script" uid="uid://b1wpjl7dyqhmb" path="res://Scripts/Base_Code/Node Script/slot_manager.gd" id="2_pbw6q"]
 [ext_resource type="Script" uid="uid://bsmvohvkwavui" path="res://Scripts/Ressource Scripts/Characters/CharactersData.gd" id="3_erwvk"]
 [ext_resource type="Script" uid="uid://drxfhy8m6q0la" path="res://Scripts/Base_Code/Node Script/Character_Hand.gd" id="3_v1gob"]
@@ -11,9 +11,8 @@
 [ext_resource type="Resource" uid="uid://br7w8a338dp8b" path="res://Ressources/Characters/Major Characters/Captain.tres" id="6_erwvk"]
 [ext_resource type="Resource" uid="uid://cxwifhqdwqh83" path="res://Ressources/Characters/Major Characters/Elite Mage.tres" id="6_frkhe"]
 [ext_resource type="Script" uid="uid://ckrnxt4quko26" path="res://Scripts/Ressource Scripts/Enemy/EnemyGroup.gd" id="9_h1m7h"]
-[ext_resource type="Resource" uid="uid://dc3hxar88iwp8" path="res://Ressources/Enemies/Golemites/Golems.tres" id="10_erwvk"]
 [ext_resource type="Script" uid="uid://cu3m2ldk3gyoj" path="res://Scripts/Base_Code/Node Script/EnemyManager.gd" id="11_2w5on"]
-[ext_resource type="Resource" uid="uid://bu805v5gqt4a2" path="res://Ressources/Enemies/Forestriers/Forestriers.tres" id="11_346fj"]
+[ext_resource type="Resource" uid="uid://bo83yp3ajyps4" path="res://Ressources/Enemies/Voidlings/Voidlings.tres" id="11_c4ay3"]
 [ext_resource type="PackedScene" uid="uid://bxoue2xd6d5sl" path="res://Scenes/Skill_Table.tscn" id="14_1p5hy"]
 [ext_resource type="Script" uid="uid://c5cyuhi62jipn" path="res://Scripts/Base_Code/Node Script/Passive_manager.gd" id="14_erwvk"]
 [ext_resource type="Script" uid="uid://bd2o010k7t3uj" path="res://Scripts/Base_Code/Non Owned Script/audio_manager.gd" id="15_erwvk"]
@@ -62,10 +61,11 @@ script = ExtResource("2_pbw6q")
 
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("11_2w5on")
-groups = Array[ExtResource("9_h1m7h")]([ExtResource("11_346fj"), ExtResource("10_erwvk")])
-boss_wave = 1
-wave_size_min = 5
-wave_size_max = 6
+groups = Array[ExtResource("9_h1m7h")]([ExtResource("11_c4ay3")])
+boss_with_escorts = false
+wave_interval = 4
+wave_size_min = 2
+wave_size_max = 4
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("4_jw32o")

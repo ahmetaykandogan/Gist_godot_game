@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=7 format=3 uid="uid://dt7v2nbmyccpe"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_pciwu"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_rl21m"]
+[ext_resource type="Script" uid="uid://bwltbj4v0tk7q" path="res://Scripts/Ressource Scripts/Effects/PushHitEffect.gd" id="2_u30hr"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="4_1lglu"]
+
+[sub_resource type="Resource" id="Resource_4v27a"]
+script = ExtResource("2_u30hr")
+amount = 2
+hit_time = 5
+push_damage = 0
+metadata/_custom_type_script = "uid://bwltbj4v0tk7q"
+
+[sub_resource type="Resource" id="Resource_lq66e"]
+script = ExtResource("4_1lglu")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_rl21m")
+skill_name = "Push Roulette"
+effects = Array[ExtResource("1_pciwu")]([SubResource("Resource_4v27a")])
+target_pattern = SubResource("Resource_lq66e")
+cast_time = 4
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=9 format=3 uid="uid://cwct3wnwy4smb"]
+
+[ext_resource type="Script" uid="uid://eblf6yw7me1i" path="res://Scripts/Ressource Scripts/Effects/SkillEffect.gd" id="1_ygpiw"]
+[ext_resource type="Script" uid="uid://dksnnvbean1m3" path="res://Scripts/Ressource Scripts/Effects/ApplyStatusEffects.gd" id="2_eh41a"]
+[ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="2_xpx30"]
+[ext_resource type="Script" uid="uid://c1jbtqme5rmll" path="res://Scripts/Ressource Scripts/Effects/DamageEffect.gd" id="3_8kxo4"]
+[ext_resource type="Script" uid="uid://dx6wocctvkkg0" path="res://Scripts/Ressource Scripts/Targeting/NormalTargeting.gd" id="5_xf5fc"]
+
+[sub_resource type="Resource" id="Resource_tf5tv"]
+script = ExtResource("2_eh41a")
+status = "Corrosion"
+metadata/_custom_type_script = "uid://dksnnvbean1m3"
+
+[sub_resource type="Resource" id="Resource_ybq0d"]
+script = ExtResource("3_8kxo4")
+amount = 0
+hit_time = 5
+metadata/_custom_type_script = "uid://c1jbtqme5rmll"
+
+[sub_resource type="Resource" id="Resource_un68u"]
+script = ExtResource("5_xf5fc")
+metadata/_custom_type_script = "uid://dx6wocctvkkg0"
+
+[resource]
+script = ExtResource("2_xpx30")
+skill_name = "Scream"
+description = "Apply 1 Corrosion"
+effects = Array[ExtResource("1_ygpiw")]([SubResource("Resource_tf5tv"), SubResource("Resource_ybq0d")])
+target_pattern = SubResource("Resource_un68u")
+cast_time = 4
+metadata/_custom_type_script = "uid://cqbjdwwd2m3ah"
