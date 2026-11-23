@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://b6hgcugncxug2" path="res://Scripts/Base_Code/Non Owned Script/Aura.gd" id="1_d8may"]
 [ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_7kig4"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_no47o"]
-[ext_resource type="Texture2D" uid="uid://c1s8e7kt7ahqh" path="res://Ressources/Enemies/Voidlings/Screamer/Screamer.jpg" id="4_kdgp7"]
 [ext_resource type="Resource" uid="uid://cwct3wnwy4smb" path="res://Ressources/Enemies/Voidlings/Screamer/Scream.tres" id="5_no47o"]
+[ext_resource type="Texture2D" uid="uid://cgjje5nvy22r2" path="res://Arts/Actual art/Screamer.png" id="6_no47o"]
 
 [sub_resource type="Resource" id="Resource_no47o"]
 script = ExtResource("1_7kig4")
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
 [resource]
 script = ExtResource("2_7kig4")
 enemy_name = "Screamer"
-texture = ExtResource("4_kdgp7")
+texture = ExtResource("6_no47o")
 max_health = 6
 skills = Array[ExtResource("3_no47o")]([ExtResource("5_no47o")])
 ai = SubResource("Resource_no47o")

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c4ya4pviyqyh3" path="res://Scripts/Ressource Scripts/Enemy/EnemytData.gd" id="2_ukas4"]
 [ext_resource type="Script" uid="uid://cqbjdwwd2m3ah" path="res://Scripts/Ressource Scripts/SkillData.gd" id="3_rigdr"]
 [ext_resource type="Resource" uid="uid://hpgcb11xtdi4" path="res://Ressources/Enemies/Voidlings/Voidling/Void Slash.tres" id="4_rigdr"]
-[ext_resource type="Texture2D" uid="uid://dg0aspcial274" path="res://Arts/PlaceHolder/Voidling.jpg" id="5_5qisv"]
+[ext_resource type="Texture2D" uid="uid://dpjjeq02sls1u" path="res://Arts/Actual art/Voidling.png" id="6_5qisv"]
 
 [sub_resource type="Resource" id="Resource_2s3h0"]
 script = ExtResource("1_5qisv")
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dc3lqh5gb7kis"
 [resource]
 script = ExtResource("2_ukas4")
 enemy_name = "Voidling"
-texture = ExtResource("5_5qisv")
+texture = ExtResource("6_5qisv")
 max_health = 4
 skills = Array[ExtResource("3_rigdr")]([ExtResource("4_rigdr")])
 priority = 3
