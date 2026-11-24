@@ -24,6 +24,8 @@ const VICTORY_DIM := Color(0.10, 0.35, 0.62, 0.55)    # bright winter blue over 
 const DEFEAT_DIM := Color(0.06, 0.05, 0.12, 0.78)     # dark and heavy
 const VICTORY_TITLE := CREAM
 const DEFEAT_TITLE := Color("f0b4aa")
+const CONFETTI_COLORS: Array[Color] = [
+	RED_LIGHT, CREAM, Color("7fd0ff"), Color.WHITE, Color("ffd24a"), Color("8be28b")]
 
 @export var result: Result = Result.VICTORY
 @export var title_text := ""                  # leave empty to use the default of the result
@@ -44,6 +46,8 @@ func _ready() -> void:
 	_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_build_dim()
 	_build_snow()
+	if result == Result.VICTORY:
+		_build_confetti()
 	var sign_root := _build_sign()
 	var restart_button := _build_restart_button()
 	var menu_button := _build_menu_button()
@@ -118,6 +122,53 @@ func _build_snow() -> void:
 	p.scale_amount_min = 0.12
 	p.scale_amount_max = 0.38
 	_root.add_child(p)
+
+
+# ================================== CONFETTI ==================================
+# One burst from each side of the screen when the Victory scene opens. It plays once.
+func _build_confetti() -> void:
+	var vp := get_viewport().get_visible_rect().size
+	var k := vp.y / 1080.0
+
+	var palette := Gradient.new()                 # each piece gets one random colour of the list
+	palette.interpolation_mode = Gradient.GRADIENT_INTERPOLATE_CONSTANT
+	var offsets := PackedFloat32Array()
+	var colors := PackedColorArray()
+	for i in CONFETTI_COLORS.size():
+		offsets.append(float(i) / CONFETTI_COLORS.size())
+		colors.append(CONFETTI_COLORS[i])
+	palette.offsets = offsets
+	palette.colors = colors
+
+	var fade := Gradient.new()                    # pieces fade out at the end of their life
+	fade.offsets = PackedFloat32Array([0.0, 0.7, 1.0])
+	fade.colors = PackedColorArray([Color.WHITE, Color.WHITE, Color(1, 1, 1, 0)])
+
+	for side in [-1.0, 1.0]:                      # -1 = left edge, 1 = right edge
+		var p := CPUParticles2D.new()
+		p.one_shot = true
+		p.amount = 80
+		p.lifetime = 3.2
+		p.explosiveness = 0.9
+		p.position = Vector2(0.0 if side < 0.0 else vp.x, vp.y * 0.75)
+		p.direction = Vector2(-side * 0.6, -1.0).normalized()   # up and towards the middle
+		p.spread = 28.0
+		p.gravity = Vector2(0, 1100.0 * k)
+		p.initial_velocity_min = 900.0 * k
+		p.initial_velocity_max = 1500.0 * k
+		p.damping_min = 120.0
+		p.damping_max = 220.0
+		p.angle_min = -180.0
+		p.angle_max = 180.0
+		p.angular_velocity_min = -540.0              # the pieces tumble while they fall
+		p.angular_velocity_max = 540.0
+		p.scale_amount_min = 7.0 * k                 # no texture: each piece is a small square
+		p.scale_amount_max = 14.0 * k
+		p.color_initial_ramp = palette
+		p.color_ramp = fade
+		p.finished.connect(p.queue_free)
+		_root.add_child(p)
+		p.emitting = true
 
 
 # ===================================== SIGN ===================================
@@ -295,7 +346,7 @@ func _wire_hover(b: Button, grown: float) -> void:
 
 
 func _scale_to(c: Control, s: float) -> void:
-	var old: Tween = c.get_meta("scale_tween", null)
+	var old: Tween = c.get_meta("scale_tween") if c.has_meta("scale_tween") else null
 	if old:
 		old.kill()
 	var t := create_tween()
